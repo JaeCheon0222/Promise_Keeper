@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Promise_Keeper</string>
+    <string name="txt_splash_content">넵플러스 최종 프로젝트\n약속지킴이</string>
 </resources>

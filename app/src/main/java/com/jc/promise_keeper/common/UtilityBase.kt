@@ -3,6 +3,8 @@ package com.jc.promise_keeper.common
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,6 +35,12 @@ sealed class UtilityBase {
         abstract fun T.onCreate()
         protected open fun initViews() {}
         protected open fun setEvents() {}
+
+        protected open fun getHandler(cls: Class<*>, delayMillis: Long, isFinish: Boolean) {
+            Handler(Looper.getMainLooper()).postDelayed({
+                goToActivityIsFinish(cls, isFinish)
+            }, delayMillis)
+        }
 
         fun goToActivityIsFinish(cls: Class<*>, isFinish: Boolean = false) {
             startActivity(Intent(mContext, cls))
