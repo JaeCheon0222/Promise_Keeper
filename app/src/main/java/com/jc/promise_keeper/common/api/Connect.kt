@@ -10,6 +10,7 @@ import retrofit2.create
 
 object Connect {
 
+    //region * retrofit & httpClient
     val keepTheTimeService: KeepTheTimeService by lazy {
         Retrofit.Builder()
             .baseUrl(Url.KEEP_THE_TIME_URL)
@@ -32,5 +33,6 @@ object Connect {
                 }
             )
             .build()
+    //endregion
 
 }
