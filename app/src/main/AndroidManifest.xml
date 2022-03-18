@@ -9,25 +9,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Promise_Keeper">
-
+        <activity
+            android:name=".activities.sign_in_out.SignUpActivity"
+            android:theme="@style/LoginTheme"
+            android:exported="false" />
         <activity
             android:name=".activities.splash.SplashActivity"
-            android:theme="@style/splashTheme"
-            android:exported="true">
-
+            android:exported="true"
+            android:theme="@style/splashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-        </activity>
-
+            android:exported="true"></activity>
     </application>
 
 </manifest>

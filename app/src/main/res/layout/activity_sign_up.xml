@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activities.sign_in_out.SignUpActivity">
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/blue">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:layout_marginTop="15dp"
+            android:weightSum="10">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/loginContent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="약속지킴이"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="9"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/login_card_background"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:id="@+id/loginTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="간편 로그인"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/socialLogin1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="@id/socialLogin2"
+                        app:layout_constraintEnd_toStartOf="@id/socialLogin2"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/socialLogin2"
+                        android:src="@mipmap/ic_launcher" />
+
+                    <ImageView
+                        android:id="@+id/socialLogin2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="20dp"
+                        app:layout_constraintEnd_toStartOf="@id/socialLogin3"
+                        app:layout_constraintStart_toEndOf="@id/socialLogin1"
+                        app:layout_constraintTop_toBottomOf="@id/loginTitle"
+                        app:layout_constraintBottom_toTopOf="@id/emailLoginText"
+                        android:src="@mipmap/ic_launcher" />
+
+                    <ImageView
+                        android:id="@+id/socialLogin3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="@id/socialLogin2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/socialLogin2"
+                        app:layout_constraintTop_toTopOf="@id/socialLogin2"
+                        android:src="@mipmap/ic_launcher" />
+
+                    <View
+                        android:id="@+id/diverLeft"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:background="@color/blue"
+                        app:layout_constraintBottom_toBottomOf="@id/emailLoginText"
+                        app:layout_constraintEnd_toStartOf="@id/emailLoginText"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/emailLoginText" />
+
+                    <TextView
+                        android:id="@+id/emailLoginText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="20dp"
+                        android:text="OR"
+                        app:layout_constraintEnd_toStartOf="@id/diverRight"
+                        app:layout_constraintStart_toEndOf="@id/diverLeft"
+                        app:layout_constraintTop_toBottomOf="@id/socialLogin2" />
+
+                    <View
+                        android:id="@+id/diverRight"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:background="@color/blue"
+                        app:layout_constraintBottom_toBottomOf="@id/emailLoginText"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/emailLoginText"
+                        app:layout_constraintTop_toTopOf="@id/emailLoginText" />
+
+
+                    <EditText
+                        android:id="@+id/inputEmailEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/edit_text_login_background"
+                        android:hint="EMAIL"
+                        android:inputType="textEmailAddress"
+                        android:paddingStart="20dp"
+                        app:layout_constraintVertical_bias="0.0"
+                        app:layout_constraintVertical_chainStyle="packed"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/emailLoginText"
+                        app:layout_constraintBottom_toTopOf="@id/inputPasswordEditText"/>
+
+                    <EditText
+                        android:id="@+id/inputPasswordEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/edit_text_login_background"
+                        android:hint="PASSWORD"
+                        android:inputType="textPassword"
+                        android:paddingStart="20dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toTopOf="@id/SignUpButton"
+                        app:layout_constraintTop_toBottomOf="@id/inputEmailEditText" />
+
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/SignUpButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/button_background"
+                        android:text="로그인"
+                        app:layout_constraintBottom_toTopOf="@id/SignInButton"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/inputPasswordEditText" />
+
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/SignInButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/button_background"
+                        android:text="회원가입"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/SignUpButton"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</layout>
