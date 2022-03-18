@@ -26,12 +26,13 @@ sealed class UtilityBase {
             super.onCreate(savedInstanceState)
             binding = DataBindingUtil.setContentView(this, layoutRes)
             mContext = this
-//            binding.onCreate()
-            initViews()
+            binding.onCreate()
+
         }
 
-        //        abstract fun T.onCreate()
+        abstract fun T.onCreate()
         protected open fun initViews() {}
+        protected open fun setEvents() {}
 
         fun goToActivityIsFinish(cls: Class<*>, isFinish: Boolean = false) {
             startActivity(Intent(mContext, cls))
@@ -68,6 +69,7 @@ sealed class UtilityBase {
         }
 
         protected open fun initViews() {}
+        protected open fun setEvents() {}
 
     }
     //endregion
