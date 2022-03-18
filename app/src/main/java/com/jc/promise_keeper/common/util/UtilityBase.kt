@@ -1,4 +1,4 @@
-package com.jc.promise_keeper.common
+package com.jc.promise_keeper.common.util
 
 import android.content.Context
 import android.content.Intent
@@ -8,6 +8,7 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -35,6 +36,10 @@ sealed class UtilityBase {
         abstract fun T.onCreate()
         protected open fun initViews() {}
         protected open fun setEvents() {}
+
+        protected open fun showToast(message: String) {
+            Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show()
+        }
 
         protected open fun getHandler(cls: Class<*>, delayMillis: Long, isFinish: Boolean) {
             Handler(Looper.getMainLooper()).postDelayed({
