@@ -1,11 +1,10 @@
 package com.jc.promise_keeper
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
+import com.jc.promise_keeper.common.UtilityBase
+import com.jc.promise_keeper.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-    }
+class MainActivity : UtilityBase.BaseAppCompatActivity<ActivityMainBinding>(R.layout.activity_main) {
+
+
+
 }
