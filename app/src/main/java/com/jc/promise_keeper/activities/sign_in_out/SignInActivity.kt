@@ -1,6 +1,5 @@
 package com.jc.promise_keeper.activities.sign_in_out
 
-import android.content.Intent
 import com.jc.promise_keeper.MainActivity
 import com.jc.promise_keeper.R
 import com.jc.promise_keeper.common.api.repository.UserRepository
