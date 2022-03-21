@@ -13,6 +13,9 @@
     <color name="color_edit_text">#14000000</color>
     <color name="blue">#0E68FF</color>
 
-    <color name="line_border">#ebebeb</color>
+    <color name="line_border">#C4C4C4</color>
+    <color name="darker_grey">#4A4A4A</color>
+
+    <color name="azure">#13b7e4</color>
 
 </resources>

@@ -3,7 +3,8 @@ package com.jc.promise_keeper
 import android.view.View
 import androidx.viewpager2.widget.ViewPager2
 import com.jc.promise_keeper.activities.adapter.MainViewPagerAdapter
-import com.jc.promise_keeper.activities.detail.PromiseDetailActivity
+import com.jc.promise_keeper.activities.promise.add.AddPromiseActivity
+import com.jc.promise_keeper.activities.promise.detail.PromiseDetailActivity
 import com.jc.promise_keeper.common.util.UtilityBase
 import com.jc.promise_keeper.databinding.ActivityMainBinding
 
@@ -34,23 +35,22 @@ class MainActivity :
     private fun addPromise() = with(binding) {
 
         floatingButton.setOnClickListener {
-            goToActivityIsFinish(PromiseDetailActivity::class.java)
+            goToActivityIsFinish(AddPromiseActivity::class.java)
         }
-
     }
 
-    private fun setUpBottomNavSelected() {
+    private fun setUpBottomNavSelected() = with(binding) {
 
-        binding.mainBottomNav.setOnItemSelectedListener {
+        mainBottomNav.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.nav_home -> {
-                    binding.mainViewPager.currentItem = 0
+                    mainViewPager.currentItem = 0
                 }
                 R.id.nav_appointments -> {
-                    binding.mainViewPager.currentItem = 1
+                    mainViewPager.currentItem = 1
                 }
                 R.id.nav_profile -> {
-                    binding.mainViewPager.currentItem = 2
+                    mainViewPager.currentItem = 2
                 }
 
             }
@@ -59,25 +59,25 @@ class MainActivity :
 
     }
 
-    private fun moveViewPager() {
+    private fun moveViewPager() = with(binding) {
 
-        binding.mainViewPager.registerOnPageChangeCallback(object :
+        mainViewPager.registerOnPageChangeCallback(object :
             ViewPager2.OnPageChangeCallback() {
 
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
 
-                binding.mainBottomNav.selectedItemId = when (position) {
+                mainBottomNav.selectedItemId = when (position) {
                     0 -> {
-                        binding.floatingButton.visibility = View.VISIBLE
+                        floatingButton.visibility = View.VISIBLE
                         R.id.nav_home
                     }
                     1 -> {
-                        binding.floatingButton.visibility = View.VISIBLE
+                        floatingButton.visibility = View.VISIBLE
                         R.id.nav_appointments
                     }
                     else -> {
-                        binding.floatingButton.visibility = View.GONE
+                        floatingButton.visibility = View.GONE
                         R.id.nav_profile
                     }
                 }

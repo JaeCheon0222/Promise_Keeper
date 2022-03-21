@@ -14,6 +14,9 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "NAVER_MAP_CLIENT_ID", project.properties["NAVER_MAP_CLIENT_ID"]
+
     }
 
     buildTypes {
@@ -55,6 +58,10 @@ dependencies {
 
     // circle imageView
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    // naver map
+    implementation 'com.naver.maps:map-sdk:3.14.0'
+
 
 
 }

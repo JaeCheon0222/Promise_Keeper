@@ -5,9 +5,39 @@
     <style name="Divider">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">1dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
         <item name="android:background">@color/line_border</item>
     </style>
 
+    <!-- inputEditText -->
+    <style name="inputEditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">34dp</item>
+        <item name="android:background">@drawable/edit_text_border</item>
+        <item name="android:textColorHint">@color/color_edit_text</item>
+        <item name="android:textColor">@color/darker_grey</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingTop">9dp</item>
+        <item name="android:paddingBottom">9dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+    </style>
 
+    <style name="titleBoxTextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:background">@drawable/edit_text_border</item>
+        <item name="android:textColorHint">@color/color_edit_text</item>
+        <item name="android:textColor">@color/darker_grey</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:padding">15sp</item>
+<!--        <item name="android:paddingTop">9dp</item>-->
+<!--        <item name="android:paddingBottom">9dp</item>-->
+<!--        <item name="android:paddingLeft">10dp</item>-->
+<!--        <item name="android:paddingRight">10dp</item>-->
+    </style>
 
 </resources>

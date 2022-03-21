@@ -12,7 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Promise_Keeper">
         <activity
-            android:name=".activities.detail.PromiseDetailActivity"
+            android:name=".activities.promise.add.AddPromiseActivity"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.naver.maps.map.CLIENT_ID"
+            android:value="@string/NAVER_MAP_CLIENT_ID" />
+
+        <activity
+            android:name=".activities.promise.detail.PromiseDetailActivity"
             android:exported="false" />
         <activity
             android:name=".activities.sign_in_out.SignUpActivity"
