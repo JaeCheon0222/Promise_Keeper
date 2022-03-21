@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Promise_Keeper">
         <activity
+            android:name=".activities.detail.PromiseDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.sign_in_out.SignUpActivity"
             android:exported="false" />
         <activity

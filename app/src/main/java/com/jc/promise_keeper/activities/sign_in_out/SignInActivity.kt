@@ -26,9 +26,12 @@ class SignInActivity :
 
         with(binding) {
 
+            inputEmailEditText.setText("testGuest0311@test.com")
+            inputPasswordEditText.setText("Test!123")
+
             signInButton.setOnClickListener {
-                email = binding.inputEmailEditText.text.toString()
-                pw = binding.inputPasswordEditText.text.toString()
+                email = inputEmailEditText.text.toString()
+                pw = inputPasswordEditText.text.toString()
                 postRequestUserSignIn(email, pw)
             }
 
