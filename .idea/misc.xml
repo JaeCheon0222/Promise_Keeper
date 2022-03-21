@@ -11,6 +11,10 @@
         <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/layout/fragment_promise.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.37604166666666666" />
       </map>
     </option>
   </component>

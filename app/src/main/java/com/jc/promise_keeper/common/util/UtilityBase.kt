@@ -78,7 +78,6 @@ sealed class UtilityBase {
         override fun onActivityCreated(savedInstanceState: Bundle?) {
             super.onActivityCreated(savedInstanceState)
             mContext = requireContext()
-            initViews()
         }
 
         protected open fun initViews() {}
