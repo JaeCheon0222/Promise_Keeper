@@ -6,7 +6,16 @@ import retrofit2.Response
 
 object UserRepository {
 
-    suspend fun postRequestUserSignUp(email: String, pw: String): Response<BasicResponse> =
-        Connect.keepTheTimeService.postRequestUserSignUp(email, pw)
+    suspend fun postRequestUserSignIn(email: String, pw: String): Response<BasicResponse> =
+        Connect.promiseKeepService.postRequestUserSignIn(email, pw)
+
+    suspend fun getRequestDuplicateEmailAndNickname(type: String, value: String): Boolean {
+        val result = Connect.promiseKeepService.getRequestDuplicateEmailAndNickname(type, value)
+        return result.isSuccessful
+    }
+
+
+    suspend fun putRequestUserSignUp(email: String, pw: String, nickname: String): Response<BasicResponse> =
+        Connect.promiseKeepService.putRequestUserSignUp(email, pw, nickname)
 
 }

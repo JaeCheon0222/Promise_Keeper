@@ -16,7 +16,6 @@ class SignInActivity :
 
     private lateinit var email: String
     private lateinit var pw: String
-    private val TOKEN = "token"
 
     override fun ActivitySignInBinding.onCreate() {
         setEvents()
@@ -25,29 +24,38 @@ class SignInActivity :
     override fun setEvents() {
         super.setEvents()
 
-        binding.signInButton.setOnClickListener {
-            email = binding.inputEmailEditText.text.toString()
-            pw = binding.inputPasswordEditText.text.toString()
-            postRequestUserSignUp(email, pw)
+        with(binding) {
+
+            signInButton.setOnClickListener {
+                email = binding.inputEmailEditText.text.toString()
+                pw = binding.inputPasswordEditText.text.toString()
+                postRequestUserSignIn(email, pw)
+            }
+
+            signUpButton.setOnClickListener {
+                goToActivityIsFinish(SignUpActivity::class.java)
+            }
+
         }
 
     }
 
-    private fun postRequestUserSignUp(email: String, pw: String) = scope.launch {
+    private fun postRequestUserSignIn(email: String, pw: String) = scope.launch {
 
-        val result = UserRepository.postRequestUserSignUp(email, pw)
+        val result = UserRepository.postRequestUserSignIn(email, pw)
         val message = result.body()?.message
         val data = result.body()?.data
         if (result.isSuccessful.not()) {
-            showToast("실패")
+            showToast("이메일 또는 비밀번호가 다릅니다. 다시 시도해주세요.")
             return@launch
-        }
+        } else {
 
-        showToast("$message ${data?.user?.nickname}님, 환영합니다!")
+            showToast("$message ${data?.user?.nickname}님, 환영합니다!")
+            data?.token?.let {
+                Preferences.setUserToken(mContext, it)
+                goToActivityIsFinish(MainActivity::class.java)
+            }
 
-        data?.token?.let {
-            Preferences.setUserToken(mContext, it)
-            goToActivityIsFinish(MainActivity::class.java)
         }
 
     }

@@ -14,8 +14,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:orientation="vertical"
             android:layout_marginTop="15dp"
+            android:orientation="vertical"
             android:weightSum="10">
 
             <LinearLayout
@@ -70,12 +70,12 @@
                         android:id="@+id/socialLogin1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:src="@mipmap/ic_launcher"
                         app:layout_constraintBottom_toBottomOf="@id/socialLogin2"
                         app:layout_constraintEnd_toStartOf="@id/socialLogin2"
                         app:layout_constraintHorizontal_chainStyle="packed"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@id/socialLogin2"
-                        android:src="@mipmap/ic_launcher" />
+                        app:layout_constraintTop_toTopOf="@id/socialLogin2" />
 
                     <ImageView
                         android:id="@+id/socialLogin2"
@@ -83,21 +83,21 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="20dp"
                         android:layout_marginTop="20dp"
+                        android:src="@mipmap/ic_launcher"
+                        app:layout_constraintBottom_toTopOf="@id/emailLoginText"
                         app:layout_constraintEnd_toStartOf="@id/socialLogin3"
                         app:layout_constraintStart_toEndOf="@id/socialLogin1"
-                        app:layout_constraintTop_toBottomOf="@id/loginTitle"
-                        app:layout_constraintBottom_toTopOf="@id/emailLoginText"
-                        android:src="@mipmap/ic_launcher" />
+                        app:layout_constraintTop_toBottomOf="@id/loginTitle" />
 
                     <ImageView
                         android:id="@+id/socialLogin3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:src="@mipmap/ic_launcher"
                         app:layout_constraintBottom_toBottomOf="@id/socialLogin2"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@id/socialLogin2"
-                        app:layout_constraintTop_toTopOf="@id/socialLogin2"
-                        android:src="@mipmap/ic_launcher" />
+                        app:layout_constraintTop_toTopOf="@id/socialLogin2" />
 
                     <View
                         android:id="@+id/diverLeft"
@@ -130,7 +130,6 @@
                         app:layout_constraintStart_toEndOf="@id/emailLoginText"
                         app:layout_constraintTop_toTopOf="@id/emailLoginText" />
 
-
                     <EditText
                         android:id="@+id/inputEmailEditText"
                         android:layout_width="match_parent"
@@ -140,12 +139,25 @@
                         android:hint="EMAIL"
                         android:inputType="textEmailAddress"
                         android:paddingStart="20dp"
-                        app:layout_constraintVertical_bias="0.0"
-                        app:layout_constraintVertical_chainStyle="packed"
+                        app:layout_constraintBottom_toTopOf="@id/loginResultText"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/emailLoginText"
-                        app:layout_constraintBottom_toTopOf="@id/inputPasswordEditText"/>
+                        app:layout_constraintVertical_bias="0.0"
+                        app:layout_constraintVertical_chainStyle="packed" />
+
+                    <TextView
+                        android:id="@+id/loginResultText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toTopOf="@id/inputPasswordEditText"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/inputEmailEditText"
+                        tools:text="실패했습니다." />
 
                     <EditText
                         android:id="@+id/inputPasswordEditText"
@@ -156,10 +168,10 @@
                         android:hint="PASSWORD"
                         android:inputType="textPassword"
                         android:paddingStart="20dp"
+                        app:layout_constraintBottom_toTopOf="@id/signInButton"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintBottom_toTopOf="@id/signInButton"
-                        app:layout_constraintTop_toBottomOf="@id/inputEmailEditText" />
+                        app:layout_constraintTop_toBottomOf="@id/loginResultText" />
 
 
                     <androidx.appcompat.widget.AppCompatButton
@@ -182,10 +194,10 @@
                         android:layout_marginTop="20dp"
                         android:background="@drawable/button_background"
                         android:text="회원가입"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/signInButton"
-                        app:layout_constraintBottom_toBottomOf="parent"/>
+                        app:layout_constraintTop_toBottomOf="@id/signInButton" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
