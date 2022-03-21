@@ -13,4 +13,6 @@
     <color name="color_edit_text">#14000000</color>
     <color name="blue">#0E68FF</color>
 
+    <color name="line_border">#ebebeb</color>
+
 </resources>
