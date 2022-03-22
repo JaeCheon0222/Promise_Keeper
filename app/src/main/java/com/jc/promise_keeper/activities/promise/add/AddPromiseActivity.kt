@@ -15,6 +15,9 @@ import com.jc.promise_keeper.databinding.ActivityAddPromiseBinding
 
 class AddPromiseActivity : UtilityBase.BaseAppCompatActivity<ActivityAddPromiseBinding>(R.layout.activity_add_promise) {
 
+    // 필요한 위험 권한
+    private val requiredPermissions = arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION)
+
     @RequiresApi(Build.VERSION_CODES.M)
     override fun ActivityAddPromiseBinding.onCreate() {
 
@@ -33,7 +36,9 @@ class AddPromiseActivity : UtilityBase.BaseAppCompatActivity<ActivityAddPromiseB
     override fun setEvents() {
         super.setEvents()
         touchScroll()
+        buttonAction()
     }
+
 
 
     @RequiresApi(Build.VERSION_CODES.M)
@@ -57,7 +62,14 @@ class AddPromiseActivity : UtilityBase.BaseAppCompatActivity<ActivityAddPromiseB
         }
     }
 
-    private val requiredPermissions = arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION)
+    private fun buttonAction() = with(binding) {
+
+        
+
+
+    }
+
+
 
     @RequiresApi(Build.VERSION_CODES.M)
     private fun requestLocationPermission() {
