@@ -52,8 +52,7 @@ class SignInActivity :
             showToast("이메일 또는 비밀번호가 다릅니다. 다시 시도해주세요.")
             return@launch
         } else {
-
-            showToast("$message ${data?.user?.nickname}님, 환영합니다!")
+            showToast("$message ${data?.user?.nickName}님, 환영합니다!")
             data?.token?.let {
                 Preferences.setUserToken(mContext, it)
                 goToActivityIsFinish(MainActivity::class.java)

@@ -79,7 +79,7 @@ class SignUpActivity :
             showToast("회원가입에 실패했습니다.")
             return@launch
         } else {
-            showToast("${body?.data?.user?.nickname}님, 가입을 환영합니다.")
+            showToast("${body?.data?.user?.nickName}님, 가입을 환영합니다.")
             goToActivityIsFinish(MainActivity::class.java, true)
         }
 

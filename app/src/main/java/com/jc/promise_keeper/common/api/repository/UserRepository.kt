@@ -1,7 +1,7 @@
 package com.jc.promise_keeper.common.api.repository
 
 import com.jc.promise_keeper.common.api.Connect
-import com.jc.promise_keeper.data.model.BasicResponse
+import com.jc.promise_keeper.data.model.basic_response.BasicResponse
 import retrofit2.Response
 
 object UserRepository {
