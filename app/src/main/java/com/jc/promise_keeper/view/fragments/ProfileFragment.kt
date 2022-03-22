@@ -1,9 +1,9 @@
-package com.jc.promise_keeper.fragments
+package com.jc.promise_keeper.view.fragments
 
 import android.content.Intent
 import android.os.Bundle
 import com.jc.promise_keeper.R
-import com.jc.promise_keeper.activities.place.FrequentlyUsedPlaceActivity
+import com.jc.promise_keeper.view.activities.place.FrequentlyUsedPlaceActivity
 import com.jc.promise_keeper.common.util.UtilityBase
 import com.jc.promise_keeper.databinding.FragmentProfileBinding
 

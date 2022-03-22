@@ -1,7 +1,7 @@
-package com.jc.promise_keeper.activities.splash
+package com.jc.promise_keeper.view.activities.splash
 
 import com.jc.promise_keeper.R
-import com.jc.promise_keeper.activities.sign_in_out.SignInActivity
+import com.jc.promise_keeper.view.activities.sign_in_out.SignInActivity
 import com.jc.promise_keeper.common.util.UtilityBase
 import com.jc.promise_keeper.databinding.ActivitySplashBinding
 

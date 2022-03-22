@@ -1,4 +1,4 @@
-package com.jc.promise_keeper.activities.sign_in_out
+package com.jc.promise_keeper.view.activities.sign_in_out
 
 import com.jc.promise_keeper.MainActivity
 import com.jc.promise_keeper.R

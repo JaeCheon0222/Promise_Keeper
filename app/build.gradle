@@ -54,13 +54,16 @@ dependencies {
     // okhttp3 logging
     implementation 'com.squareup.okhttp3:logging-interceptor:4.9.3'
     // coroutine
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2'
 
     // circle imageView
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
     // naver map
     implementation 'com.naver.maps:map-sdk:3.14.0'
+
+    // google-service-location
+    implementation 'com.google.android.gms:play-services-location:19.0.1'
 
 
 

@@ -2,9 +2,8 @@ package com.jc.promise_keeper
 
 import android.view.View
 import androidx.viewpager2.widget.ViewPager2
-import com.jc.promise_keeper.activities.adapter.MainViewPagerAdapter
-import com.jc.promise_keeper.activities.promise.add.AddPromiseActivity
-import com.jc.promise_keeper.activities.promise.detail.PromiseDetailActivity
+import com.jc.promise_keeper.adapter.MainViewPagerAdapter
+import com.jc.promise_keeper.view.activities.promise.add.AddPromiseActivity
 import com.jc.promise_keeper.common.util.UtilityBase
 import com.jc.promise_keeper.databinding.ActivityMainBinding
 

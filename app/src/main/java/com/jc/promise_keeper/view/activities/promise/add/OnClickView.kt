@@ -1,4 +1,4 @@
-package com.jc.promise_keeper.activities.promise.add
+package com.jc.promise_keeper.view.activities.promise.add
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog

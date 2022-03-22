@@ -38,7 +38,7 @@ interface PromiseKeepService {
         @Field("latitude") lat: Long,
         @Field("longitude") lng: Long,
         @Field("is_primary") isPrimary: Boolean
-    )
+    ): Response<BasicResponse>
 
 
 }

@@ -14,10 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Promise_Keeper">
         <activity
-            android:name=".activities.place.FrequentlyUsedPlaceActivity"
+            android:name="com.jc.promise_keeper.view.activities.place.FrequentlyUsedPlaceActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.promise.add.AddPromiseActivity"
+            android:name="com.jc.promise_keeper.view.activities.promise.add.AddPromiseActivity"
             android:exported="false" />
 
         <meta-data
@@ -25,17 +25,17 @@
             android:value="@string/NAVER_MAP_CLIENT_ID" />
 
         <activity
-            android:name=".activities.promise.detail.PromiseDetailActivity"
+            android:name="com.jc.promise_keeper.view.activities.promise.detail.PromiseDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.sign_in_out.SignUpActivity"
+            android:name="com.jc.promise_keeper.view.activities.sign_in_out.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.sign_in_out.SignInActivity"
+            android:name="com.jc.promise_keeper.view.activities.sign_in_out.SignInActivity"
             android:exported="false"
             android:theme="@style/LoginTheme" />
         <activity
-            android:name=".activities.splash.SplashActivity"
+            android:name="com.jc.promise_keeper.view.activities.splash.SplashActivity"
             android:exported="true"
             android:theme="@style/splashTheme">
             <intent-filter>

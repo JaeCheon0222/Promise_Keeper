@@ -1,11 +1,11 @@
-package com.jc.promise_keeper.activities.adapter
+package com.jc.promise_keeper.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.jc.promise_keeper.fragments.HomeFragment
-import com.jc.promise_keeper.fragments.ProfileFragment
-import com.jc.promise_keeper.fragments.PromiseFragment
+import com.jc.promise_keeper.view.fragments.HomeFragment
+import com.jc.promise_keeper.view.fragments.ProfileFragment
+import com.jc.promise_keeper.view.fragments.PromiseFragment
 
 class MainViewPagerAdapter(
     fm: FragmentActivity

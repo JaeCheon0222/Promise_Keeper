@@ -1,4 +1,4 @@
-package com.jc.promise_keeper.activities.adapter
+package com.jc.promise_keeper.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
