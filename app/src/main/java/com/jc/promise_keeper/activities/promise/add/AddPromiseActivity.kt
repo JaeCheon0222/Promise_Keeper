@@ -10,6 +10,7 @@ import android.provider.Settings
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import com.jc.promise_keeper.R
+import com.jc.promise_keeper.activities.adapter.StartPlaceSpinnerAdapter
 import com.jc.promise_keeper.common.util.UtilityBase
 import com.jc.promise_keeper.databinding.ActivityAddPromiseBinding
 
@@ -17,6 +18,8 @@ class AddPromiseActivity : UtilityBase.BaseAppCompatActivity<ActivityAddPromiseB
 
     // 필요한 위험 권한
     private val requiredPermissions = arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION)
+
+    private lateinit var startPlaceSpinnerAdapter: StartPlaceSpinnerAdapter
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun ActivityAddPromiseBinding.onCreate() {
@@ -30,13 +33,24 @@ class AddPromiseActivity : UtilityBase.BaseAppCompatActivity<ActivityAddPromiseB
     override fun initViews() {
         super.initViews()
         initMap()
+
+//        startPlaceSpinnerAdapter = StartPlaceSpinnerAdapter(
+//            mContext,
+//            R.layout.start_place_spinner_item,
+//            null //mStartPlaceList
+//        )
+//        binding.startPlaceSpinner.adapter = startPlaceSpinnerAdapter
+
     }
 
 
     override fun setEvents() {
         super.setEvents()
         touchScroll()
-        buttonAction()
+        OnClickView(binding).run {
+            getPromiseDate()
+            getPromiseTime()
+        }
     }
 
 
@@ -64,11 +78,8 @@ class AddPromiseActivity : UtilityBase.BaseAppCompatActivity<ActivityAddPromiseB
 
     private fun buttonAction() = with(binding) {
 
-        
-
 
     }
-
 
 
     @RequiresApi(Build.VERSION_CODES.M)
