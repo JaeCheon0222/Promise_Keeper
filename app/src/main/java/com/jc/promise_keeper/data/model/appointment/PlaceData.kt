@@ -1,10 +1,14 @@
 package com.jc.promise_keeper.data.model.appointment
 
-class PlaceData(
+import com.google.gson.annotations.SerializedName
+
+data class PlaceData(
     val id: Int,
-    val user_id: Int,
+    @SerializedName("user_id")
+    val userId: Int,
     val name: String,
     val latitude: Double,
     val longitude: Double,
-    val is_primary: Boolean
+    @SerializedName("is_primary")
+    val isPrimary: Boolean
 )

@@ -9,6 +9,7 @@
         <entry key="app/src/main/res/drawable/edit_text_logind_background.xml" value="0.222" />
         <entry key="app/src/main/res/drawable/login_card_background.xml" value="0.222" />
         <entry key="app/src/main/res/layout/activity_add_promise.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/activity_frequently_used_place.xml" value="0.3619791666666667" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3707136237256719" />
         <entry key="app/src/main/res/layout/activity_promise_detail.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.25" />

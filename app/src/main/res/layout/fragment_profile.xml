@@ -30,6 +30,7 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/myProfileLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -58,6 +59,7 @@
             <include layout="@layout/div" />
 
             <LinearLayout
+                android:id="@+id/myFriendListLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -86,6 +88,7 @@
             <include layout="@layout/div" />
 
             <LinearLayout
+                android:id="@+id/myPromiseListLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -114,6 +117,7 @@
             <include layout="@layout/div" />
 
             <LinearLayout
+                android:id="@+id/myStartPlaceListLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -142,6 +146,7 @@
             <include layout="@layout/div" />
 
             <LinearLayout
+                android:id="@+id/logoutLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"

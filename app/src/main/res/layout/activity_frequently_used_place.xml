@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activities.place.FrequentlyUsedPlaceActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="등록할 장소 이름"
+                    android:textColor="@color/darker_grey"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/addPromisePlace"
+                    style="@style/inputEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:hint="등록할 장소 이름을 적어주세요." />
+
+                <include layout="@layout/div" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="지도에서 선택"
+                    android:textColor="@color/darker_grey"
+                    android:textSize="15sp" />
+
+                <FrameLayout
+                    android:id="@+id/frameLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
+
+                    <com.naver.maps.map.MapView
+                        android:id="@+id/naverMap"
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp" />
+
+                    <TextView
+                        android:id="@+id/txtScrollHelp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </FrameLayout>
+
+                <include layout="@layout/div" />
+
+                <CheckBox
+                    android:id="@+id/addBasicPlaceCheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="기본 장소로 설정"
+                    android:textSize="12sp"/>
+
+                <include layout="@layout/div" />
+
+                <Button
+                    android:id="@+id/placeAddButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/azure"
+                    android:text="장소 등록"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</layout>
