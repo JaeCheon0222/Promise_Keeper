@@ -3,13 +3,12 @@ package com.jc.promise_keeper.view.activities.sign_in_out
 import com.jc.promise_keeper.MainActivity
 import com.jc.promise_keeper.R
 import com.jc.promise_keeper.common.api.repository.UserRepository
-import com.jc.promise_keeper.common.util.UtilityBase
+import com.jc.promise_keeper.common.util.base_view.BaseAppCompatActivity
 import com.jc.promise_keeper.databinding.ActivitySignUpBinding
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 
-class SignUpActivity :
-    UtilityBase.BaseAppCompatActivity<ActivitySignUpBinding>(R.layout.activity_sign_up) {
+class SignUpActivity : BaseAppCompatActivity<ActivitySignUpBinding>(R.layout.activity_sign_up) {
 
     private val scope = MainScope()
 

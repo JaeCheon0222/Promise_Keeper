@@ -1,16 +1,13 @@
 package com.jc.promise_keeper.view.activities.promise.add
 
 import android.annotation.SuppressLint
-import android.content.pm.PackageManager
-import android.os.Build
 import android.os.Bundle
-import androidx.annotation.RequiresApi
 import com.jc.promise_keeper.R
 import com.jc.promise_keeper.adapter.StartPlaceSpinnerAdapter
-import com.jc.promise_keeper.common.util.UtilityBase
+import com.jc.promise_keeper.common.util.base_view.BaseAppCompatActivity
 import com.jc.promise_keeper.databinding.ActivityAddPromiseBinding
 
-class AddPromiseActivity : UtilityBase.BaseAppCompatActivity<ActivityAddPromiseBinding>(R.layout.activity_add_promise) {
+class AddPromiseActivity : BaseAppCompatActivity<ActivityAddPromiseBinding>(R.layout.activity_add_promise) {
 
     private lateinit var startPlaceSpinnerAdapter: StartPlaceSpinnerAdapter
 
@@ -23,8 +20,6 @@ class AddPromiseActivity : UtilityBase.BaseAppCompatActivity<ActivityAddPromiseB
 
     override fun initViews() {
         super.initViews()
-
-        map.setUpMap()
 
 //        startPlaceSpinnerAdapter = StartPlaceSpinnerAdapter(
 //            mContext,

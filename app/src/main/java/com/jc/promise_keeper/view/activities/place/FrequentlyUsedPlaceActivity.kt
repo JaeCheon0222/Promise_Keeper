@@ -3,14 +3,14 @@ package com.jc.promise_keeper.view.activities.place
 import android.os.Bundle
 import android.widget.Toast
 import com.jc.promise_keeper.R
-import com.jc.promise_keeper.common.util.UtilityBase
+import com.jc.promise_keeper.common.util.base_view.BaseAppCompatActivity
 import com.jc.promise_keeper.databinding.ActivityFrequentlyUsedPlaceBinding
 
 
 /**
  * 자주 사용하는 장소 등록
  * */
-class FrequentlyUsedPlaceActivity : UtilityBase.BaseAppCompatActivity<ActivityFrequentlyUsedPlaceBinding>(R.layout.activity_frequently_used_place) {
+class FrequentlyUsedPlaceActivity : BaseAppCompatActivity<ActivityFrequentlyUsedPlaceBinding>(R.layout.activity_frequently_used_place) {
 
     override fun ActivityFrequentlyUsedPlaceBinding.onCreate() {
         setEvents()
@@ -18,7 +18,6 @@ class FrequentlyUsedPlaceActivity : UtilityBase.BaseAppCompatActivity<ActivityFr
 
     override fun initViews() {
         super.initViews()
-        map.setUpMap()
     }
 
     override fun setEvents() = with(binding) {

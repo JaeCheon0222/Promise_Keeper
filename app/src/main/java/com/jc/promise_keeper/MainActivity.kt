@@ -3,12 +3,12 @@ package com.jc.promise_keeper
 import android.view.View
 import androidx.viewpager2.widget.ViewPager2
 import com.jc.promise_keeper.adapter.MainViewPagerAdapter
+import com.jc.promise_keeper.common.util.base_view.BaseAppCompatActivity
 import com.jc.promise_keeper.view.activities.promise.add.AddPromiseActivity
-import com.jc.promise_keeper.common.util.UtilityBase
 import com.jc.promise_keeper.databinding.ActivityMainBinding
 
 class MainActivity :
-    UtilityBase.BaseAppCompatActivity<ActivityMainBinding>(R.layout.activity_main) {
+    BaseAppCompatActivity<ActivityMainBinding>(R.layout.activity_main) {
 
     override fun ActivityMainBinding.onCreate() {
 
