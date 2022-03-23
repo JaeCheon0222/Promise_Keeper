@@ -25,15 +25,7 @@ object UserRepository {
     ): Response<BasicResponse> =
         Connect.promiseKeepService.putRequestUserSignUp(email, pw, nickname)
 
-    // 기본 장소 등록
-    suspend fun postRequestFrequentlyPlace(
-        token: String,
-        name: String,
-        lat: Long,
-        lng: Long,
-        isPrimary: Boolean
-    ): Response<BasicResponse> =
-        Connect.promiseKeepService.postRequestFrequentlyPlace(token, name, lat, lng, isPrimary)
+
 
 
 }

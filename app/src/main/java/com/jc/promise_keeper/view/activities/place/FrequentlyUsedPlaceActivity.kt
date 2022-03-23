@@ -1,7 +1,10 @@
 package com.jc.promise_keeper.view.activities.place
 
+import android.Manifest
 import android.os.Bundle
 import android.widget.Toast
+import com.gun0912.tedpermission.PermissionListener
+import com.gun0912.tedpermission.normal.TedPermission
 import com.jc.promise_keeper.R
 import com.jc.promise_keeper.common.util.base_view.BaseAppCompatActivity
 import com.jc.promise_keeper.databinding.ActivityFrequentlyUsedPlaceBinding
@@ -13,6 +16,7 @@ import com.jc.promise_keeper.databinding.ActivityFrequentlyUsedPlaceBinding
 class FrequentlyUsedPlaceActivity : BaseAppCompatActivity<ActivityFrequentlyUsedPlaceBinding>(R.layout.activity_frequently_used_place) {
 
     override fun ActivityFrequentlyUsedPlaceBinding.onCreate() {
+
         setEvents()
     }
 
@@ -42,6 +46,9 @@ class FrequentlyUsedPlaceActivity : BaseAppCompatActivity<ActivityFrequentlyUsed
 
     private fun postRequestFrequentlyPlace() {
 //        UserRepository.postRequestFrequentlyPlace()
+
+
+
     }
 
 

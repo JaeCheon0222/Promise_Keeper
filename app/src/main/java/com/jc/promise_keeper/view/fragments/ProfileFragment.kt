@@ -5,7 +5,7 @@ import android.os.Bundle
 import com.jc.promise_keeper.R
 import com.jc.promise_keeper.common.util.base_view.BaseFragment
 import com.jc.promise_keeper.databinding.FragmentProfileBinding
-import com.jc.promise_keeper.view.activities.place.FrequentlyUsedPlaceActivity
+import com.jc.promise_keeper.view.activities.place.FrequentlyPlaceListActivity
 
 class ProfileFragment: BaseFragment<FragmentProfileBinding>(R.layout.fragment_profile) {
 
@@ -21,7 +21,7 @@ class ProfileFragment: BaseFragment<FragmentProfileBinding>(R.layout.fragment_pr
         super.setEvents()
 
         myStartPlaceListLayout.setOnClickListener {
-            Intent(mContext, FrequentlyUsedPlaceActivity::class.java).run {
+            Intent(mContext, FrequentlyPlaceListActivity::class.java).run {
                 startActivity(this)
             }
         }

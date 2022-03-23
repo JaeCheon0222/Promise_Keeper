@@ -14,10 +14,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Promise_Keeper">
         <activity
-            android:name="com.jc.promise_keeper.view.activities.place.FrequentlyUsedPlaceActivity"
-            android:exported="false" />
+            android:name=".view.activities.place.FrequentlyPlaceListActivity"
+            android:exported="true" />
         <activity
-            android:name="com.jc.promise_keeper.view.activities.promise.add.AddPromiseActivity"
+            android:name=".view.activities.place.FrequentlyUsedPlaceActivity"
+            android:exported="true" />
+        <activity
+            android:name=".view.activities.promise.add.AddPromiseActivity"
             android:exported="false" />
 
         <meta-data
@@ -25,17 +28,20 @@
             android:value="@string/NAVER_MAP_CLIENT_ID" />
 
         <activity
-            android:name="com.jc.promise_keeper.view.activities.promise.detail.PromiseDetailActivity"
+            android:name=".common.util.LocationActivity"
+            android:exported="true" />
+        <activity
+            android:name=".view.activities.promise.detail.PromiseDetailActivity"
             android:exported="false" />
         <activity
-            android:name="com.jc.promise_keeper.view.activities.sign_in_out.SignUpActivity"
+            android:name=".view.activities.sign_in_out.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name="com.jc.promise_keeper.view.activities.sign_in_out.SignInActivity"
+            android:name=".view.activities.sign_in_out.SignInActivity"
             android:exported="false"
             android:theme="@style/LoginTheme" />
         <activity
-            android:name="com.jc.promise_keeper.view.activities.splash.SplashActivity"
+            android:name=".view.activities.splash.SplashActivity"
             android:exported="true"
             android:theme="@style/splashTheme">
             <intent-filter>

@@ -1,7 +1,11 @@
 package com.jc.promise_keeper.view.activities.promise.add
 
+import android.Manifest
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.widget.Toast
+import com.gun0912.tedpermission.PermissionListener
+import com.gun0912.tedpermission.normal.TedPermission
 import com.jc.promise_keeper.R
 import com.jc.promise_keeper.adapter.StartPlaceSpinnerAdapter
 import com.jc.promise_keeper.common.util.base_view.BaseAppCompatActivity
@@ -11,15 +15,36 @@ class AddPromiseActivity : BaseAppCompatActivity<ActivityAddPromiseBinding>(R.la
 
     private lateinit var startPlaceSpinnerAdapter: StartPlaceSpinnerAdapter
 
+
     override fun ActivityAddPromiseBinding.onCreate() {
+
+
+
 
         initViews()
         setEvents()
 
     }
 
+    @SuppressLint("MissingPermission")
     override fun initViews() {
         super.initViews()
+
+//        fusedLocationClient.lastLocation
+//            .addOnSuccessListener { location : Location? ->
+//                Log.d("TAG", "initViews: ${location?.latitude}, ${location?.longitude}")
+//
+//                scope.launch {
+//
+//                    LocationRepository.getNearByMonitoringStation(location?.latitude!!, location?.longitude!!)
+//
+//
+//                }
+//
+//
+//
+//            }
+
 
 //        startPlaceSpinnerAdapter = StartPlaceSpinnerAdapter(
 //            mContext,

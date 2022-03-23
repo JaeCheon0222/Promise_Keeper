@@ -4,6 +4,7 @@ import com.jc.promise_keeper.common.util.Preferences
 import com.jc.promise_keeper.data.model.appointment.Data
 import com.jc.promise_keeper.data.model.appointment.User
 import com.jc.promise_keeper.data.model.basic_response.BasicResponse
+import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -33,12 +34,15 @@ interface PromiseKeepService {
     @FormUrlEncoded
     @POST("/user/place")
     suspend fun postRequestFrequentlyPlace(
-        @Header("X-Http-Token") token: String,
+//        @Header("X-Http-Token") token: String,
         @Field("name") name: String,
         @Field("latitude") lat: Long,
         @Field("longitude") lng: Long,
         @Field("is_primary") isPrimary: Boolean
     ): Response<BasicResponse>
+
+    @GET("/user/place")
+    suspend fun getRequestFrequentlyPlaceList() : Response<BasicResponse>
 
 
 }

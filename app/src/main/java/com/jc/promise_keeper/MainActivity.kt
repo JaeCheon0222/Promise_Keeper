@@ -1,7 +1,11 @@
 package com.jc.promise_keeper
 
+import android.Manifest
 import android.view.View
+import android.widget.Toast
 import androidx.viewpager2.widget.ViewPager2
+import com.gun0912.tedpermission.PermissionListener
+import com.gun0912.tedpermission.normal.TedPermission
 import com.jc.promise_keeper.adapter.MainViewPagerAdapter
 import com.jc.promise_keeper.common.util.base_view.BaseAppCompatActivity
 import com.jc.promise_keeper.view.activities.promise.add.AddPromiseActivity
@@ -9,6 +13,24 @@ import com.jc.promise_keeper.databinding.ActivityMainBinding
 
 class MainActivity :
     BaseAppCompatActivity<ActivityMainBinding>(R.layout.activity_main) {
+
+
+    val permissionlistener: PermissionListener = object : PermissionListener {
+        override fun onPermissionGranted() {
+            goToActivityIsFinish(AddPromiseActivity::class.java)
+            Toast.makeText(mContext, "Permission Granted", Toast.LENGTH_SHORT).show()
+        }
+
+        override fun onPermissionDenied(deniedPermissions: List<String>) {
+            Toast.makeText(
+                mContext,
+                "Permission Denied\n$deniedPermissions",
+                Toast.LENGTH_SHORT
+            ).show()
+
+        }
+    }
+
 
     override fun ActivityMainBinding.onCreate() {
 
@@ -34,7 +56,14 @@ class MainActivity :
     private fun addPromise() = with(binding) {
 
         floatingButton.setOnClickListener {
-            goToActivityIsFinish(AddPromiseActivity::class.java)
+
+            TedPermission.create()
+                .setPermissionListener(permissionlistener)
+                .setDeniedMessage("If you reject permission,you can not use this service\n\nPlease turn on permissions at [Setting] > [Permission]")
+                .setPermissions(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION)
+                .check()
+
+
         }
     }
 

@@ -10,6 +10,6 @@ data class Data(
     val user: User?,
     @SerializedName("token")
     val token: String,
-    @SerializedName("place")
-    val place: PlaceData
+    @SerializedName("places")
+    val places: List<PlaceData>
 )
