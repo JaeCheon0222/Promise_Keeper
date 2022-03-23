@@ -8,7 +8,6 @@ object PlaceRepository {
 
     // 기본 장소 등록
     suspend fun postRequestFrequentlyPlace(
-        token: String,
         name: String,
         lat: Long,
         lng: Long,
