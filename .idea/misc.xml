@@ -20,10 +20,12 @@
         <entry key="app/src/main/res/layout/custom_appbar_layout.xml" value="0.353125" />
         <entry key="app/src/main/res/layout/div.xml" value="0.496875" />
         <entry key="app/src/main/res/layout/divder.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/layout/fragment_friends.xml" value="0.2640625" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_promise.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/layout/frequenlty_place_list_item.xml" value="0.6046875" />
+        <entry key="app/src/main/res/layout/my_friend_list_item.xml" value="0.2640625" />
         <entry key="app/src/main/res/layout/start_place_spinner_item.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.37604166666666666" />
       </map>

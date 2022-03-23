@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.jc.promise_keeper.R
-import com.jc.promise_keeper.data.model.appointment.PlaceData
+import com.jc.promise_keeper.data.model.datas.PlaceData
 
 class PlaceRecyclerAdapter(
     val mContext: Context,

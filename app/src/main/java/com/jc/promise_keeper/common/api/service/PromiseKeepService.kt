@@ -1,15 +1,12 @@
 package com.jc.promise_keeper.common.api.service
 
-import com.jc.promise_keeper.common.util.Preferences
-import com.jc.promise_keeper.data.model.appointment.Data
-import com.jc.promise_keeper.data.model.appointment.User
 import com.jc.promise_keeper.data.model.basic_response.BasicResponse
-import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.*
 
 interface PromiseKeepService {
 
+    //region * User
     @FormUrlEncoded
     @POST("/user")
     suspend fun postRequestUserSignIn(
@@ -30,7 +27,9 @@ interface PromiseKeepService {
         @Field("password") pw: String,
         @Field("nick_name") nickname: String
     ): Response<BasicResponse>
+    //endregion
 
+    //region * place
     @FormUrlEncoded
     @POST("/user/place")
     suspend fun postRequestFrequentlyPlace(
@@ -43,6 +42,14 @@ interface PromiseKeepService {
 
     @GET("/user/place")
     suspend fun getRequestFrequentlyPlaceList() : Response<BasicResponse>
+    //endregion
 
+    //region * friend
+    @GET("/user/friend")
+    suspend fun getRequestFriendList(
+        @Query("type") type: String
+    ): Response<BasicResponse>
+
+    //endregion
 
 }

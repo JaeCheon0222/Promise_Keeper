@@ -1,7 +1,7 @@
 package com.jc.promise_keeper.data.model.basic_response
 
 import com.google.gson.annotations.SerializedName
-import com.jc.promise_keeper.data.model.appointment.Data
+import com.jc.promise_keeper.data.model.datas.Data
 
 data class BasicResponse(
     @SerializedName("code")

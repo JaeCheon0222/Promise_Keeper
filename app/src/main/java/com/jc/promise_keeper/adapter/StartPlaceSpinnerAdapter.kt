@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import com.jc.promise_keeper.R
-import com.jc.promise_keeper.data.model.appointment.PlaceData
+import com.jc.promise_keeper.data.model.datas.PlaceData
 
 class StartPlaceSpinnerAdapter(
     val mContext: Context,

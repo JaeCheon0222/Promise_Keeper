@@ -7,7 +7,7 @@ import com.jc.promise_keeper.R
 import com.jc.promise_keeper.adapter.PlaceRecyclerAdapter
 import com.jc.promise_keeper.common.api.repository.PlaceRepository
 import com.jc.promise_keeper.common.util.base_view.BaseAppCompatActivity
-import com.jc.promise_keeper.data.model.appointment.PlaceData
+import com.jc.promise_keeper.data.model.datas.PlaceData
 import com.jc.promise_keeper.databinding.ActivityFrequentlyPlaceListBinding
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch

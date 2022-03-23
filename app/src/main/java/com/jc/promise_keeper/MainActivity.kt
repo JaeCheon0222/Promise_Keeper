@@ -77,8 +77,11 @@ class MainActivity :
                 R.id.nav_appointments -> {
                     mainViewPager.currentItem = 1
                 }
-                R.id.nav_profile -> {
+                R.id.nav_friends -> {
                     mainViewPager.currentItem = 2
+                }
+                R.id.nav_profile -> {
+                    mainViewPager.currentItem = 3
                 }
 
             }
@@ -103,6 +106,10 @@ class MainActivity :
                     1 -> {
                         floatingButton.visibility = View.VISIBLE
                         R.id.nav_appointments
+                    }
+                    2 -> {
+                        floatingButton.visibility = View.GONE
+                        R.id.nav_friends
                     }
                     else -> {
                         floatingButton.visibility = View.GONE

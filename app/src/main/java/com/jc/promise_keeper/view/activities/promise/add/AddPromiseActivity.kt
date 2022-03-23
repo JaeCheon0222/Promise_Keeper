@@ -5,13 +5,11 @@ import android.os.Bundle
 import com.jc.promise_keeper.R
 import com.jc.promise_keeper.adapter.StartPlaceSpinnerAdapter
 import com.jc.promise_keeper.common.util.base_view.BaseAppCompatActivity
-import com.jc.promise_keeper.data.model.appointment.PlaceData
+import com.jc.promise_keeper.data.model.datas.PlaceData
 import com.jc.promise_keeper.databinding.ActivityAddPromiseBinding
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.CameraUpdate
 import com.naver.maps.map.MapView
-import com.naver.maps.map.NaverMap
-import com.naver.maps.map.OnMapReadyCallback
 import com.naver.maps.map.overlay.Marker
 import java.util.*
 
