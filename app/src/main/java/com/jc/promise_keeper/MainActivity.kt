@@ -55,16 +55,16 @@ class MainActivity :
 
     private fun addPromise() = with(binding) {
 
-        floatingButton.setOnClickListener {
-
-            TedPermission.create()
-                .setPermissionListener(permissionlistener)
-                .setDeniedMessage("If you reject permission,you can not use this service\n\nPlease turn on permissions at [Setting] > [Permission]")
-                .setPermissions(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION)
-                .check()
-
-
-        }
+//        floatingButton.setOnClickListener {
+//
+//            TedPermission.create()
+//                .setPermissionListener(permissionlistener)
+//                .setDeniedMessage("If you reject permission,you can not use this service\n\nPlease turn on permissions at [Setting] > [Permission]")
+//                .setPermissions(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION)
+//                .check()
+//
+//
+//        }
     }
 
     private fun setUpBottomNavSelected() = with(binding) {
@@ -100,19 +100,19 @@ class MainActivity :
 
                 mainBottomNav.selectedItemId = when (position) {
                     0 -> {
-                        floatingButton.visibility = View.VISIBLE
+                        addAppointmentButton.visibility = View.VISIBLE
                         R.id.nav_home
                     }
                     1 -> {
-                        floatingButton.visibility = View.VISIBLE
+                        addAppointmentButton.visibility = View.VISIBLE
                         R.id.nav_appointments
                     }
                     2 -> {
-                        floatingButton.visibility = View.GONE
+                        addAppointmentButton.visibility = View.GONE
                         R.id.nav_friends
                     }
                     else -> {
-                        floatingButton.visibility = View.GONE
+                        addAppointmentButton.visibility = View.GONE
                         R.id.nav_profile
                     }
                 }
