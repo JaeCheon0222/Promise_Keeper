@@ -13,6 +13,7 @@
         <entry key="app/src/main/res/layout/activity_frequently_used_place.xml" value="0.3619791666666667" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3707136237256719" />
         <entry key="app/src/main/res/layout/activity_promise_detail.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/layout/activity_search_user.xml" value="0.6046875" />
         <entry key="app/src/main/res/layout/activity_show_naver_map.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.33" />
@@ -20,12 +21,16 @@
         <entry key="app/src/main/res/layout/custom_appbar_layout.xml" value="0.353125" />
         <entry key="app/src/main/res/layout/div.xml" value="0.496875" />
         <entry key="app/src/main/res/layout/divder.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/layout/fragment_friend_list.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_friends.xml" value="0.2640625" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_promise.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/layout/fragment_requested_users.xml" value="0.6046875" />
         <entry key="app/src/main/res/layout/frequenlty_place_list_item.xml" value="0.6046875" />
         <entry key="app/src/main/res/layout/my_friend_list_item.xml" value="0.2640625" />
+        <entry key="app/src/main/res/layout/requested_user_list_item.xml" value="0.6046875" />
+        <entry key="app/src/main/res/layout/searched_user_list_item.xml" value="0.6046875" />
         <entry key="app/src/main/res/layout/start_place_spinner_item.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.37604166666666666" />
       </map>

@@ -1,6 +1,5 @@
 package com.jc.promise_keeper.data.model.datas
 
-
 import com.google.gson.annotations.SerializedName
 
 data class Data(
@@ -13,5 +12,6 @@ data class Data(
     @SerializedName("places")
     val places: List<PlaceData>,
     @SerializedName("friends")
-    val friends: List<User>
+    val friends: List<User>,
+    val users: List<User>
 )

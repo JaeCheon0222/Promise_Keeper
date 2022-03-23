@@ -50,6 +50,25 @@ interface PromiseKeepService {
         @Query("type") type: String
     ): Response<BasicResponse>
 
+
+    @FormUrlEncoded
+    @PUT("/user/friend")
+    suspend fun putRequestAcceptOrDenyFriend(
+        @Field("user_id") userId: Int,
+        @Field("type") type: String
+    ): Response<BasicResponse>
+
+    @GET("/search/user")
+    suspend fun getRequestSearchUser(
+        @Query("nickname") nickname: String
+    ): Response<BasicResponse>
+
+    @FormUrlEncoded
+    @POST("/user/friend")
+    suspend fun postRequestAddFriend(
+        @Field("user_id") userId: Int
+    ): Response<BasicResponse>
+
     //endregion
 
 }
