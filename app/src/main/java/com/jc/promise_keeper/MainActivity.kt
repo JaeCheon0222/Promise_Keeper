@@ -7,13 +7,12 @@ import androidx.viewpager2.widget.ViewPager2
 import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.normal.TedPermission
 import com.jc.promise_keeper.adapter.MainViewPagerAdapter
+import com.jc.promise_keeper.adapter.StartPlaceSpinnerAdapter
 import com.jc.promise_keeper.common.util.base_view.BaseAppCompatActivity
 import com.jc.promise_keeper.view.activities.promise.add.AddPromiseActivity
 import com.jc.promise_keeper.databinding.ActivityMainBinding
 
-class MainActivity :
-    BaseAppCompatActivity<ActivityMainBinding>(R.layout.activity_main) {
-
+class MainActivity : BaseAppCompatActivity<ActivityMainBinding>(R.layout.activity_main) {
 
     val permissionlistener: PermissionListener = object : PermissionListener {
         override fun onPermissionGranted() {
@@ -30,6 +29,8 @@ class MainActivity :
 
         }
     }
+
+    lateinit var mStartPlaceAdapter: StartPlaceSpinnerAdapter
 
 
     override fun ActivityMainBinding.onCreate() {
@@ -51,6 +52,7 @@ class MainActivity :
         setUpBottomNavSelected()
         moveViewPager()
         addPromise()
+        goToAddAppointment()
     }
 
     private fun addPromise() = with(binding) {
@@ -120,6 +122,14 @@ class MainActivity :
             }
 
         })
+
+    }
+
+    private fun goToAddAppointment() {
+
+        binding.addAppointmentButton.setOnClickListener {
+            goToActivityIsFinish(AddPromiseActivity::class.java)
+        }
 
     }
 

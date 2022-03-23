@@ -29,4 +29,28 @@ object PlaceRepository {
         Connect.promiseKeepService.postRequestAddMyPlace(name, lat, lng, isPrimary)
 
 
+    suspend fun getRequestMyPlaceList(): Response<BasicResponse> =
+        Connect.promiseKeepService.getRequestMyPlaceList()
+
+    suspend fun postRequestAddAppointment(
+        title: String,
+        dateTime: String,
+        startPlace: String,
+        startLatitude: Double,
+        startLongitude: Double,
+        place: String,
+        lat: Double,
+        lng: Double
+    ): Response<BasicResponse> =
+        Connect.promiseKeepService.postRequestAddAppointment(
+            title,
+            dateTime,
+            startPlace,
+            startLatitude,
+            startLongitude,
+            place,
+            lat,
+            lng
+        )
+
 }

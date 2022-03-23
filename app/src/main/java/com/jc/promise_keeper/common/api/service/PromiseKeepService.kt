@@ -1,7 +1,6 @@
 package com.jc.promise_keeper.common.api.service
 
 import com.jc.promise_keeper.data.model.basic_response.BasicResponse
-import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -52,6 +51,24 @@ interface PromiseKeepService {
         @Field("longitude") lng: Double,
         @Field("is_primary") isPrimary: Boolean
     ): Response<BasicResponse>
+
+    @GET("/user/place")
+    suspend fun getRequestMyPlaceList() : Response<BasicResponse>
+
+    @FormUrlEncoded
+    @POST("/appointment")
+    suspend fun postRequestAddAppointment(
+        @Field("title") title: String,
+        @Field("datetime") dateTime: String,
+        @Field("start_place") startPlace: String,
+        @Field("start_latitude") startLatitude: Double,
+        @Field("start_longitude") startLongitude: Double,
+        @Field("place") place: String,
+        @Field("latitude") lat: Double,
+        @Field("longitude") lng: Double
+    ): Response<BasicResponse>
+
+
 
     //endregion
 
