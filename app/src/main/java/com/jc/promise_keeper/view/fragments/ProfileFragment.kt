@@ -6,6 +6,7 @@ import com.jc.promise_keeper.R
 import com.jc.promise_keeper.common.util.base_view.BaseFragment
 import com.jc.promise_keeper.databinding.FragmentProfileBinding
 import com.jc.promise_keeper.view.activities.place.FrequentlyPlaceListActivity
+import com.jc.promise_keeper.view.activities.place.FrequentlyUsedPlaceActivity
 
 class ProfileFragment: BaseFragment<FragmentProfileBinding>(R.layout.fragment_profile) {
 
@@ -19,6 +20,15 @@ class ProfileFragment: BaseFragment<FragmentProfileBinding>(R.layout.fragment_pr
 
     override fun setEvents() = with(binding) {
         super.setEvents()
+
+        addMyStartPlaceLayout.setOnClickListener {
+
+            Intent(mContext, FrequentlyUsedPlaceActivity::class.java).run {
+                startActivity(this)
+            }
+
+        }
+
 
         myStartPlaceListLayout.setOnClickListener {
             Intent(mContext, FrequentlyPlaceListActivity::class.java).run {

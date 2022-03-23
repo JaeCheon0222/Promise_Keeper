@@ -1,6 +1,7 @@
 package com.jc.promise_keeper.common.api.service
 
 import com.jc.promise_keeper.data.model.basic_response.BasicResponse
+import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -42,6 +43,16 @@ interface PromiseKeepService {
 
     @GET("/user/place")
     suspend fun getRequestFrequentlyPlaceList() : Response<BasicResponse>
+
+    @FormUrlEncoded
+    @POST("/user/place")
+    suspend fun postRequestAddMyPlace(
+        @Field("name") name: String,
+        @Field("latitude") lat: Double,
+        @Field("longitude") lng: Double,
+        @Field("is_primary") isPrimary: Boolean
+    ): Response<BasicResponse>
+
     //endregion
 
     //region * friend
