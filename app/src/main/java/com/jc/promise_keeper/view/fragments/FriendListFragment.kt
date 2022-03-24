@@ -49,7 +49,6 @@ class FriendListFragment: BaseFragment<FragmentFriendListBinding>(R.layout.fragm
 
         }
 
-
     }
 
     override fun onResume() {

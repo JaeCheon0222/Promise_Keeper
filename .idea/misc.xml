@@ -24,6 +24,7 @@
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.25" />
         <entry key="app/src/main/res/layout/appointment_list_item.xml" value="0.3625" />
         <entry key="app/src/main/res/layout/custom_appbar_layout.xml" value="0.353125" />
+        <entry key="app/src/main/res/layout/destination_info_window.xml" value="0.3625" />
         <entry key="app/src/main/res/layout/div.xml" value="0.496875" />
         <entry key="app/src/main/res/layout/divder.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/layout/fragment_friend_list.xml" value="0.25" />
