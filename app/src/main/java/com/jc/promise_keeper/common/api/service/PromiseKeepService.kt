@@ -1,6 +1,7 @@
 package com.jc.promise_keeper.common.api.service
 
 import com.jc.promise_keeper.data.model.basic_response.BasicResponse
+import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -68,6 +69,8 @@ interface PromiseKeepService {
         @Field("longitude") lng: Double
     ): Response<BasicResponse>
 
+    @GET("/appointment")
+    fun getRequestAppointmentList(): Call<BasicResponse>
 
 
     //endregion

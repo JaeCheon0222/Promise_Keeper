@@ -2,6 +2,7 @@ package com.jc.promise_keeper.data.model.datas
 
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class User(
     @SerializedName("app_maker")
@@ -24,4 +25,4 @@ data class User(
     val uid: Any?,
     @SerializedName("updated_at")
     val updatedAt: String?
-)
+) : Serializable

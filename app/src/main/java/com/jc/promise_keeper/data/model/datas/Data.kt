@@ -13,5 +13,7 @@ data class Data(
     val places: List<PlaceData>,
     @SerializedName("friends")
     val friends: List<User>,
-    val users: List<User>
+    val users: List<User>,
+
+    val appointments: List<Appointment>,
 )

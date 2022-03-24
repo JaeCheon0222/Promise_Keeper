@@ -6,9 +6,11 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:padding="20dp"
+        android:background="@color/light_grey"
         android:orientation="vertical">
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/appointmentRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
