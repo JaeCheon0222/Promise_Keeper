@@ -76,6 +76,11 @@ interface PromiseKeepService {
     @GET("/appointment")
     fun getRequestAppointmentList(): Call<BasicResponse>
 
+    @DELETE("/appointment")
+    suspend fun deleteRequestAppointment(
+        @Query("appointment_id") id: Int
+    ): Response<BasicResponse>
+
 
     //endregion
 

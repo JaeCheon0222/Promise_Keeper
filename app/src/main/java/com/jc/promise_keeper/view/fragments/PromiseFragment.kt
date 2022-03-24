@@ -2,6 +2,7 @@ package com.jc.promise_keeper.view.fragments
 
 import android.os.Bundle
 import android.util.Log
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.jc.promise_keeper.R
 import com.jc.promise_keeper.adapter.AppointmentRecyclerAdapter

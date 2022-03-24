@@ -53,4 +53,7 @@ object PlaceRepository {
             lng
         )
 
+    suspend fun deleteRequestAppointment(id: Int): Response<BasicResponse> =
+        Connect.promiseKeepService.deleteRequestAppointment(id)
+
 }

@@ -1,30 +1,40 @@
 package com.jc.promise_keeper.adapter
 
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.jc.promise_keeper.R
+import com.jc.promise_keeper.common.api.repository.PlaceRepository
 import com.jc.promise_keeper.data.model.datas.Appointment
 import com.jc.promise_keeper.view.activities.map.PromisePlaceMapViewActivity
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
+import okhttp3.internal.notifyAll
 import java.text.SimpleDateFormat
 
+
 class AppointmentRecyclerAdapter(
-    val mContext: Context,
-    val mList: List<Appointment>
+    private val mContext: Context,
+    private val mList: List<Appointment>
 ) : RecyclerView.Adapter<AppointmentRecyclerAdapter.MyViewHolder>() {
+
+    val scope = MainScope()
 
     inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        val txtTitle = view.findViewById<TextView>(R.id.titleTextView)
-        val txtDateTime = view.findViewById<TextView>(R.id.dateTimeTextView)
-        val txtPlaceName = view.findViewById<TextView>(R.id.placeNameTextView)
-        val imgViewMap = view.findViewById<ImageView>(R.id.imgViewMap)
+        private val txtTitle = view.findViewById<TextView>(R.id.titleTextView)
+        private val txtDateTime = view.findViewById<TextView>(R.id.dateTimeTextView)
+        private val txtPlaceName = view.findViewById<TextView>(R.id.placeNameTextView)
+        private val imgViewMap = view.findViewById<ImageView>(R.id.imgViewMap)
+        private val deleteButton = view.findViewById<ImageView>(R.id.deleteButton)
 
         fun bind(data: Appointment) {
 
@@ -44,6 +54,12 @@ class AppointmentRecyclerAdapter(
                 mContext.startActivity(myIntent)
             }
 
+            deleteButton.setOnClickListener {
+
+                showDialog(data.id!!)
+
+            }
+
         }
 
     }
@@ -59,11 +75,45 @@ class AppointmentRecyclerAdapter(
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
         val data = mList[position]
-        Log.d("holder", "onBindViewHolder: $data")
         holder.bind(data)
 
     }
 
     override fun getItemCount(): Int = mList.size
+
+    private fun deleteRequestAppointment(id: Int) = scope.launch {
+
+        val result = PlaceRepository.deleteRequestAppointment(id)
+
+        if (result.isSuccessful) {
+
+            val code = result.body()?.code
+
+            if (code == 200) {
+
+                Toast.makeText(mContext, "삭제했습니다.", Toast.LENGTH_SHORT).show()
+            }
+
+
+        } else {
+            Toast.makeText(mContext, "삭제에 실패했습니다.", Toast.LENGTH_SHORT).show()
+        }
+
+    }
+
+    private fun showDialog(id: Int) {
+
+        AlertDialog.Builder(mContext)
+            .setTitle("약속 삭제하기")
+            .setMessage("해당 약속을 삭제하시겠습니까?")
+            .setPositiveButton("삭제", DialogInterface.OnClickListener { _, _ ->
+                deleteRequestAppointment(id)
+            })
+            .setNegativeButton("취소", null)
+            .show()
+    }
+
+
+
 
 }
