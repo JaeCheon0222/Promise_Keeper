@@ -28,6 +28,10 @@ interface PromiseKeepService {
         @Field("password") pw: String,
         @Field("nick_name") nickname: String
     ): Response<BasicResponse>
+
+    @GET("/user")
+    suspend fun getMyInfo(): Response<BasicResponse>
+
     //endregion
 
     //region * place

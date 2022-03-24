@@ -116,6 +116,7 @@
                         android:layout_marginHorizontal="20dp"
                         android:layout_marginTop="20dp"
                         android:text="OR"
+                        app:layout_constraintBottom_toTopOf="@id/inputEmailEditText"
                         app:layout_constraintEnd_toStartOf="@id/diverRight"
                         app:layout_constraintStart_toEndOf="@id/diverLeft"
                         app:layout_constraintTop_toBottomOf="@id/socialLogin2" />
@@ -141,6 +142,7 @@
                         android:paddingStart="20dp"
                         app:layout_constraintBottom_toTopOf="@id/loginResultText"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.4"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/emailLoginText"
                         app:layout_constraintVertical_bias="0.0"
@@ -168,30 +170,49 @@
                         android:hint="PASSWORD"
                         android:inputType="textPassword"
                         android:paddingStart="20dp"
-                        app:layout_constraintBottom_toTopOf="@id/signInButton"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/loginResultText" />
 
+                    <TextView
+                        android:id="@+id/passwordResultText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/inputPasswordEditText"
+                        tools:text="실패했습니다." />
+
+
+                    <CheckBox
+                        android:id="@+id/autoLoginCheckBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="10dp"
+                        android:text="자동로그인"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/passwordResultText" />
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/signInButton"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
                         android:background="@drawable/button_background"
                         android:text="로그인"
                         app:layout_constraintBottom_toTopOf="@id/signUpButton"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.6"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/inputPasswordEditText" />
-
+                        app:layout_constraintTop_toBottomOf="@+id/autoLoginCheckBox" />
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/signUpButton"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
                         android:background="@drawable/button_background"
                         android:text="회원가입"
                         app:layout_constraintBottom_toBottomOf="parent"

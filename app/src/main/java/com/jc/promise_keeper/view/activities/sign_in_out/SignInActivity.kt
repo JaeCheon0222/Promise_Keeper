@@ -18,6 +18,13 @@ class SignInActivity : BaseAppCompatActivity<ActivitySignInBinding>(R.layout.act
 
     override fun ActivitySignInBinding.onCreate() {
         setEvents()
+        initViews()
+    }
+
+    override fun initViews() {
+        super.initViews()
+        binding.autoLoginCheckBox.isChecked = Preferences.getAutoLogin(mContext)
+
     }
 
     override fun setEvents() {
@@ -25,8 +32,8 @@ class SignInActivity : BaseAppCompatActivity<ActivitySignInBinding>(R.layout.act
 
         with(binding) {
 
-            inputEmailEditText.setText("testGuest0311@test.com")
-            inputPasswordEditText.setText("Test!123")
+//            inputEmailEditText.setText("testGuest0311@test.com")
+//            inputPasswordEditText.setText("Test!123")
 
             signInButton.setOnClickListener {
                 email = inputEmailEditText.text.toString()
@@ -36,6 +43,10 @@ class SignInActivity : BaseAppCompatActivity<ActivitySignInBinding>(R.layout.act
 
             signUpButton.setOnClickListener {
                 goToActivityIsFinish(SignUpActivity::class.java)
+            }
+
+            autoLoginCheckBox.setOnCheckedChangeListener { _, isChecked ->
+                Preferences.setAutoLogin(mContext, isChecked)
             }
 
         }

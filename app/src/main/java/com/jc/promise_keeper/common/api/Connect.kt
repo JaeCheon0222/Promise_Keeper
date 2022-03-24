@@ -9,12 +9,18 @@ import com.jc.promise_keeper.common.util.Preferences
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.json.JSONObject
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
 import java.util.*
 
 object Connect {
+
+
+    interface JsonResponseHandler {
+        fun onResponse(jsonObject: JSONObject)
+    }
 
 //    private var retrofit: Retrofit? = null
 
@@ -68,9 +74,6 @@ object Connect {
             .client(myClient)
             .build()
             .create()
-
-
-
     }
 
     private fun buildOkHttpClient(): OkHttpClient =

@@ -25,6 +25,10 @@ object UserRepository {
     ): Response<BasicResponse> =
         Connect.promiseKeepService.putRequestUserSignUp(email, pw, nickname)
 
+    // 내 정보 조회
+    suspend fun getMyInfo(): Response<BasicResponse> =
+        Connect.promiseKeepService.getMyInfo()
+
 
 
 

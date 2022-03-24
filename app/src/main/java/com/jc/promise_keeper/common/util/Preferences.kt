@@ -16,4 +16,14 @@ object Preferences {
             .getString(Keys.LOGIN_USER_TOKEN, "")
             .toString()
 
+    fun setAutoLogin(context: Context, isAuto: Boolean) {
+        val pref = context.getSharedPreferences(Keys.PREF_NAME, Context.MODE_PRIVATE)
+        pref.edit().putBoolean(Keys.AUTO_LOGIN, isAuto).apply()
+    }
+
+    fun getAutoLogin(context: Context) : Boolean {
+        val pref = context.getSharedPreferences(Keys.PREF_NAME, Context.MODE_PRIVATE)
+        return pref.getBoolean(Keys.AUTO_LOGIN, true)
+    }
+
 }

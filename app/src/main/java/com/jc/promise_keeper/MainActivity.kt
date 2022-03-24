@@ -1,16 +1,14 @@
 package com.jc.promise_keeper
 
-import android.Manifest
 import android.view.View
 import android.widget.Toast
 import androidx.viewpager2.widget.ViewPager2
 import com.gun0912.tedpermission.PermissionListener
-import com.gun0912.tedpermission.normal.TedPermission
 import com.jc.promise_keeper.adapter.MainViewPagerAdapter
 import com.jc.promise_keeper.adapter.StartPlaceSpinnerAdapter
 import com.jc.promise_keeper.common.util.base_view.BaseAppCompatActivity
-import com.jc.promise_keeper.view.activities.promise.add.AddPromiseActivity
 import com.jc.promise_keeper.databinding.ActivityMainBinding
+import com.jc.promise_keeper.view.activities.promise.add.AddPromiseActivity
 
 class MainActivity : BaseAppCompatActivity<ActivityMainBinding>(R.layout.activity_main) {
 
