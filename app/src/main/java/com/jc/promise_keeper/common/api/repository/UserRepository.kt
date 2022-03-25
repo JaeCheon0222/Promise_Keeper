@@ -2,6 +2,7 @@ package com.jc.promise_keeper.common.api.repository
 
 import com.jc.promise_keeper.common.api.Connect
 import com.jc.promise_keeper.data.model.basic_response.BasicResponse
+import okhttp3.MultipartBody
 import retrofit2.Response
 import retrofit2.http.Field
 
@@ -29,7 +30,9 @@ object UserRepository {
     suspend fun getMyInfo(): Response<BasicResponse> =
         Connect.promiseKeepService.getMyInfo()
 
-
+    // 프로필 사진
+    suspend fun putRequestSetProfile(multiPart: MultipartBody.Part): Response<BasicResponse> =
+        Connect.promiseKeepService.putRequestSetProfile(multiPart)
 
 
 }

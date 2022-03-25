@@ -1,6 +1,7 @@
 package com.jc.promise_keeper.common.api.service
 
 import com.jc.promise_keeper.data.model.basic_response.BasicResponse
+import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.*
@@ -114,6 +115,12 @@ interface PromiseKeepService {
     @POST("/user/friend")
     suspend fun postRequestAddFriend(
         @Field("user_id") userId: Int
+    ): Response<BasicResponse>
+
+    @Multipart // 파일을 관장하는 애노테이션
+    @PUT("/user/image")
+    suspend fun putRequestSetProfile(
+        @Part image: MultipartBody.Part
     ): Response<BasicResponse>
 
     //endregion
