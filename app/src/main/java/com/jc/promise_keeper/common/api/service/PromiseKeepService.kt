@@ -60,6 +60,13 @@ interface PromiseKeepService {
     @GET("/user/place")
     suspend fun getRequestMyPlaceList() : Response<BasicResponse>
 
+    @DELETE("/user/place")
+    suspend fun deleteRequestPlace(): Response<BasicResponse>
+
+    //endregion
+
+
+    //region * appointment
     @FormUrlEncoded
     @POST("/appointment")
     suspend fun postRequestAddAppointment(
@@ -80,8 +87,6 @@ interface PromiseKeepService {
     suspend fun deleteRequestAppointment(
         @Query("appointment_id") id: Int
     ): Response<BasicResponse>
-
-
     //endregion
 
     //region * friend

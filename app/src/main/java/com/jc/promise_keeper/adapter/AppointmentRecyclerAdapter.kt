@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.jc.promise_keeper.R
+import com.jc.promise_keeper.common.api.repository.AppointmentRepository
 import com.jc.promise_keeper.common.api.repository.PlaceRepository
 import com.jc.promise_keeper.data.model.datas.Appointment
 import com.jc.promise_keeper.view.activities.map.PromisePlaceMapViewActivity
@@ -83,7 +84,7 @@ class AppointmentRecyclerAdapter(
 
     private fun deleteRequestAppointment(id: Int) = scope.launch {
 
-        val result = PlaceRepository.deleteRequestAppointment(id)
+        val result = AppointmentRepository.deleteRequestAppointment(id)
 
         if (result.isSuccessful) {
 

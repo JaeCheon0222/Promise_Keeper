@@ -12,6 +12,7 @@ import android.widget.TimePicker
 import android.widget.Toast
 import com.jc.promise_keeper.R
 import com.jc.promise_keeper.adapter.StartPlaceSpinnerAdapter
+import com.jc.promise_keeper.common.api.repository.AppointmentRepository
 import com.jc.promise_keeper.common.api.repository.PlaceRepository
 import com.jc.promise_keeper.common.util.base_view.BaseAppCompatActivity
 import com.jc.promise_keeper.data.model.datas.PlaceData
@@ -380,7 +381,7 @@ class AddPromiseActivity :
         lng: Double
     ) = scope.launch {
 
-        val result = PlaceRepository.postRequestAddAppointment(
+        val result = AppointmentRepository.postRequestAddAppointment(
             inputTitle, format, name, latitude, longitude, inputPlaceName, lat, lng
         )
 

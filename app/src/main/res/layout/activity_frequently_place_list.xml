@@ -4,19 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".view.activities.place.FrequentlyPlaceListActivity">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:background="@color/light_grey">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/frequentlyPlaceRecyclerView"
             android:layout_height="match_parent"
             android:layout_width="match_parent"
-            tools:listitem="@layout/frequenlty_place_list_item"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            tools:listitem="@layout/frequenlty_place_list_item">
+
         </androidx.recyclerview.widget.RecyclerView>
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </LinearLayout>
 
 
 </layout>
