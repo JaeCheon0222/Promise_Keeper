@@ -1,8 +1,10 @@
 package com.jc.promise_keeper.adapter
 
+import android.app.Activity
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +12,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.gms.common.api.internal.LifecycleCallback.getFragment
 import com.jc.promise_keeper.R
 import com.jc.promise_keeper.common.api.repository.AppointmentRepository
 import com.jc.promise_keeper.common.api.repository.PlaceRepository
@@ -24,7 +29,7 @@ import java.text.SimpleDateFormat
 
 class AppointmentRecyclerAdapter(
     private val mContext: Context,
-    private val mList: List<Appointment>
+    private val mList: List<Appointment>,
 ) : RecyclerView.Adapter<AppointmentRecyclerAdapter.MyViewHolder>() {
 
     val scope = MainScope()
@@ -91,14 +96,40 @@ class AppointmentRecyclerAdapter(
             val code = result.body()?.code
 
             if (code == 200) {
-
                 Toast.makeText(mContext, "삭제했습니다.", Toast.LENGTH_SHORT).show()
+                refreshAdapter()
             }
 
 
         } else {
             Toast.makeText(mContext, "삭제에 실패했습니다.", Toast.LENGTH_SHORT).show()
         }
+
+    }
+
+    private fun refreshAdapter() {
+
+//        if (mContext is Fragment) {
+//
+//            Log.d("TAG", "Fragment")
+//
+//        } else if (mContext is Activity) {
+//            Log.d("TAG", "Activity")
+//        } else {
+//            Log.d("TAG", "refreshAdapter: ")
+//        }
+
+
+//        val fragmentManager = fragmentManager?.beginTransaction()
+//        fragmentManager?.detach(fragment)?.attach(fragment)?.commit()
+
+
+        val intent = (mContext as Activity).intent
+        mContext.finish() //현재 액티비티 종료 실시
+        mContext.overridePendingTransition(0, 0) //효과 없애기
+        mContext.startActivity(intent) //현재 액티비티 재실행 실시
+        mContext.overridePendingTransition(0, 0) //효과 없애기
+
 
     }
 
