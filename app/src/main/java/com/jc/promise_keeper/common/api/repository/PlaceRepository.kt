@@ -28,8 +28,11 @@ object PlaceRepository {
     ): Response<BasicResponse> =
         Connect.promiseKeepService.postRequestAddMyPlace(name, lat, lng, isPrimary)
 
-
     suspend fun getRequestMyPlaceList(): Response<BasicResponse> =
         Connect.promiseKeepService.getRequestMyPlaceList()
+
+    suspend fun deleteRequestPlace(id: Int): Response<BasicResponse> =
+        Connect.promiseKeepService.deleteRequestPlace(id)
+
 
 }

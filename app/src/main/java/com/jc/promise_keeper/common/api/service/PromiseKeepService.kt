@@ -61,7 +61,9 @@ interface PromiseKeepService {
     suspend fun getRequestMyPlaceList() : Response<BasicResponse>
 
     @DELETE("/user/place")
-    suspend fun deleteRequestPlace(): Response<BasicResponse>
+    suspend fun deleteRequestPlace(
+        @Query("place_id") id: Int
+    ): Response<BasicResponse>
 
     //endregion
 

@@ -34,9 +34,6 @@
             android:value="@string/NAVER_MAP_CLIENT_ID" />
 
         <activity
-            android:name=".common.util.LocationActivity"
-            android:exported="true" />
-        <activity
             android:name=".view.activities.promise.detail.PromiseDetailActivity"
             android:exported="false" />
         <activity
