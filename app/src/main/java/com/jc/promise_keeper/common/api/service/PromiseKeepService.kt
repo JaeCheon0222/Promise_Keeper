@@ -47,7 +47,7 @@ interface PromiseKeepService {
     ): Response<BasicResponse>
 
     @GET("/user/place")
-    suspend fun getRequestFrequentlyPlaceList() : Response<BasicResponse>
+    suspend fun getRequestFrequentlyPlaceList(): Response<BasicResponse>
 
     @FormUrlEncoded
     @POST("/user/place")
@@ -59,7 +59,7 @@ interface PromiseKeepService {
     ): Response<BasicResponse>
 
     @GET("/user/place")
-    suspend fun getRequestMyPlaceList() : Response<BasicResponse>
+    suspend fun getRequestMyPlaceList(): Response<BasicResponse>
 
     @DELETE("/user/place")
     suspend fun deleteRequestPlace(
@@ -121,6 +121,14 @@ interface PromiseKeepService {
     @PUT("/user/image")
     suspend fun putRequestSetProfile(
         @Part image: MultipartBody.Part
+    ): Response<BasicResponse>
+
+
+    @FormUrlEncoded
+    @PATCH("/user/password")
+    suspend fun patchRequestChangePassword(
+        @Field("current_password") currentPw: String,
+        @Field("new_password") newPw: String
     ): Response<BasicResponse>
 
     //endregion

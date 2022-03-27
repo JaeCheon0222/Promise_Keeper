@@ -34,5 +34,8 @@ object UserRepository {
     suspend fun putRequestSetProfile(multiPart: MultipartBody.Part): Response<BasicResponse> =
         Connect.promiseKeepService.putRequestSetProfile(multiPart)
 
+    // 비밀번호
+    suspend fun patchRequestChangePassword(currentPw: String, newPw: String): Response<BasicResponse> =
+        Connect.promiseKeepService.patchRequestChangePassword(currentPw, newPw)
 
 }

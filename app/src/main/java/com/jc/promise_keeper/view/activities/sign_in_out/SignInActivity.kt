@@ -70,6 +70,7 @@ class SignInActivity : BaseAppCompatActivity<ActivitySignInBinding>(R.layout.act
                 Preferences.setUserProfileImage(mContext, it.user.profileImg!!)
                 Preferences.setUserCreatedAt(mContext, it.user.createdAt!!)
                 Preferences.setUserNickname(mContext, it.user.nickName!!)
+                Preferences.setUserPw(mContext, pw)
                 goToActivityIsFinish(MainActivity::class.java)
             }
 

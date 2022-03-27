@@ -97,16 +97,54 @@ class MyProfileActivity :
 
             }
 
+
+            passwordChangeButton.setOnClickListener {
+
+                val newPw = newPasswordEditText.text.toString()
+                changePw(newPw)
+
+            }
+
+        }
+
+    }
+
+
+    private fun changePw(newPw: String) = scope.launch{
+
+        val currentPw = Preferences.getUserPw(mContext)
+        val inputCurrentPw = binding.currentPasswordEditText.text.toString()
+
+        Log.d("TAG", "current: ${currentPw}, input: $inputCurrentPw")
+
+        if (currentPw != inputCurrentPw) {
+            showToast("기존 비밀번호가 틀립니다.")
+            return@launch
+        }
+
+        val result = UserRepository.patchRequestChangePassword(currentPw, newPw)
+
+        if (result.isSuccessful) {
+
+            binding.userInfoLayout.visibility = View.VISIBLE
+            binding.passwordChangeLayout.visibility = View.GONE
+            binding.passwordChangeButton.visibility = View.GONE
+            binding.currentPasswordEditText.setText("")
+            binding.newPasswordEditText.setText("")
+            binding.profileChangeCheckBox.isChecked = false
+
+            showToast("비밀번호 변경에 성공했습니다.")
+
+        } else {
+            showToast("비밀번호 변경에 실패했습니다.")
         }
 
     }
 
     private fun getProfile() {
-
         binding.changeProfileButton.setOnClickListener {
             setProfileImage()
         }
-
     }
 
 
@@ -165,5 +203,5 @@ class MyProfileActivity :
             }
 
         }
-    
+
 }

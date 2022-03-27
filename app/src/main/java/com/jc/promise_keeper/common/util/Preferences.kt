@@ -56,6 +56,13 @@ object Preferences {
             .putString(Keys.CREATED_AT, createAt)
             .apply()
 
+    fun setUserPw(context: Context, createAt: String) =
+        context.getSharedPreferences(Keys.USER_INFO_NAME, Context.MODE_PRIVATE)
+            .edit()
+            .putString(Keys.PASSWORD, createAt)
+            .apply()
+
+
     fun getUserEmail(context: Context): String =
         context.getSharedPreferences(Keys.USER_INFO_NAME, Context.MODE_PRIVATE)
             .getString(Keys.USER_EMAIL, "")
@@ -81,7 +88,10 @@ object Preferences {
             .getString(Keys.CREATED_AT, "")
             .toString()
 
-
+    fun getUserPw(context: Context): String =
+        context.getSharedPreferences(Keys.USER_INFO_NAME, Context.MODE_PRIVATE)
+            .getString(Keys.PASSWORD, "")
+            .toString()
 
 
 }

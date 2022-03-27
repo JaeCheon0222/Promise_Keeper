@@ -3,6 +3,7 @@ package com.jc.promise_keeper.view.activities.sign_in_out
 import com.jc.promise_keeper.MainActivity
 import com.jc.promise_keeper.R
 import com.jc.promise_keeper.common.api.repository.UserRepository
+import com.jc.promise_keeper.common.util.Preferences
 import com.jc.promise_keeper.common.util.base_view.BaseAppCompatActivity
 import com.jc.promise_keeper.databinding.ActivitySignUpBinding
 import kotlinx.coroutines.MainScope
@@ -78,7 +79,14 @@ class SignUpActivity : BaseAppCompatActivity<ActivitySignUpBinding>(R.layout.act
             showToast("회원가입에 실패했습니다.")
             return@launch
         } else {
-            showToast("${body?.data?.user?.nickName}님, 가입을 환영합니다.")
+            val userInfo = body?.data?.user!!
+            showToast("${userInfo.nickName}님, 가입을 환영합니다.")
+            Preferences.setUserEmail(mContext, userInfo.email!!)
+            Preferences.setUserProvider(mContext, userInfo.provider!!)
+            Preferences.setUserProfileImage(mContext, userInfo.profileImg!!)
+            Preferences.setUserCreatedAt(mContext, userInfo.createdAt!!)
+            Preferences.setUserNickname(mContext, userInfo.nickName!!)
+            Preferences.setUserToken(mContext, body.data.token)
             goToActivityIsFinish(MainActivity::class.java, true)
         }
 

@@ -14,5 +14,6 @@ object Keys {
     const val PROVIDER = "PROVIDER"
     const val PROFILE_IMG = "PROFILE_IMG"
     const val CREATED_AT = "CREATED_AT"
+    const val PASSWORD = "PASSWORD"
 
 }
