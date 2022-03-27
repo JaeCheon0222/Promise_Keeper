@@ -12,22 +12,6 @@ import com.jc.promise_keeper.view.activities.promise.add.AddPromiseActivity
 
 class MainActivity : BaseAppCompatActivity<ActivityMainBinding>(R.layout.activity_main) {
 
-    val permissionlistener: PermissionListener = object : PermissionListener {
-        override fun onPermissionGranted() {
-            goToActivityIsFinish(AddPromiseActivity::class.java)
-            Toast.makeText(mContext, "Permission Granted", Toast.LENGTH_SHORT).show()
-        }
-
-        override fun onPermissionDenied(deniedPermissions: List<String>) {
-            Toast.makeText(
-                mContext,
-                "Permission Denied\n$deniedPermissions",
-                Toast.LENGTH_SHORT
-            ).show()
-
-        }
-    }
-
     lateinit var mStartPlaceAdapter: StartPlaceSpinnerAdapter
 
 
@@ -49,23 +33,9 @@ class MainActivity : BaseAppCompatActivity<ActivityMainBinding>(R.layout.activit
 
         setUpBottomNavSelected()
         moveViewPager()
-        addPromise()
         goToAddAppointment()
     }
 
-    private fun addPromise() = with(binding) {
-
-//        floatingButton.setOnClickListener {
-//
-//            TedPermission.create()
-//                .setPermissionListener(permissionlistener)
-//                .setDeniedMessage("If you reject permission,you can not use this service\n\nPlease turn on permissions at [Setting] > [Permission]")
-//                .setPermissions(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION)
-//                .check()
-//
-//
-//        }
-    }
 
     private fun setUpBottomNavSelected() = with(binding) {
 

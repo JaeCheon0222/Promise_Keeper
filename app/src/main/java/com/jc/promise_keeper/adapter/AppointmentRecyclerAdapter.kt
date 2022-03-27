@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,18 +11,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.gms.common.api.internal.LifecycleCallback.getFragment
 import com.jc.promise_keeper.R
 import com.jc.promise_keeper.common.api.repository.AppointmentRepository
-import com.jc.promise_keeper.common.api.repository.PlaceRepository
 import com.jc.promise_keeper.data.model.datas.Appointment
-import com.jc.promise_keeper.view.activities.map.PromisePlaceMapViewActivity
+import com.jc.promise_keeper.view.activities.promise.detail.PromiseDetailActivity
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
-import okhttp3.internal.notifyAll
 import java.text.SimpleDateFormat
 
 
@@ -55,7 +49,7 @@ class AppointmentRecyclerAdapter(
             txtDateTime.text = sdf.format(data.datetime!!)
 
             imgViewMap.setOnClickListener {
-                val myIntent = Intent(mContext, PromisePlaceMapViewActivity::class.java)
+                val myIntent = Intent(mContext, PromiseDetailActivity::class.java)
                 myIntent.putExtra("appointment", data)
                 mContext.startActivity(myIntent)
             }

@@ -1,6 +1,7 @@
 package com.jc.promise_keeper.view.activities.place
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.jc.promise_keeper.R
 import com.jc.promise_keeper.common.api.repository.PlaceRepository
@@ -37,6 +38,9 @@ class FrequentlyUsedPlaceActivity :
         super.setEvents()
 
         placeAddButton.setOnClickListener {
+
+            Log.d("TAG", "setEvents: ")
+
 
             val placeName = addPlaceEditText.text.toString()
             val isBasicPlace = addBasicPlaceCheckBox.isChecked

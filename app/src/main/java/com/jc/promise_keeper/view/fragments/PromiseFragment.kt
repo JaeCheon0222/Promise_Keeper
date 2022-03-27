@@ -32,7 +32,6 @@ class PromiseFragment: BaseFragment<FragmentPromiseBinding>(R.layout.fragment_pr
     override fun initViews() {
         super.initViews()
 
-        Log.d("appointmentList", "initViews: ${appointmentList}")
         appointmentRecyclerAdapter = AppointmentRecyclerAdapter(mContext, appointmentList)
         binding.appointmentRecyclerView.adapter = appointmentRecyclerAdapter
         binding.appointmentRecyclerView.layoutManager = LinearLayoutManager(mContext)
