@@ -21,10 +21,7 @@ class SplashActivity : BaseAppCompatActivity<ActivitySplashBinding>(R.layout.act
 
 
     override fun ActivitySplashBinding.onCreate() {
-        getHandler(SignInActivity::class.java, 2500, true)
-
         initViews()
-
     }
 
     override fun initViews() {

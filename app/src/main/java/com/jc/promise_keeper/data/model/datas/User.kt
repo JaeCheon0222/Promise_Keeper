@@ -6,7 +6,7 @@ import java.io.Serializable
 
 data class User(
     @SerializedName("app_maker")
-    val appMaker: Any?,
+    val appMaker: String?,
     @SerializedName("created_at")
     val createdAt: String?,
     @SerializedName("email")
@@ -22,7 +22,7 @@ data class User(
     @SerializedName("ready_minute")
     val readyMinute: Int?,
     @SerializedName("uid")
-    val uid: Any?,
+    val uid: String?,
     @SerializedName("updated_at")
     val updatedAt: String?
 ) : Serializable

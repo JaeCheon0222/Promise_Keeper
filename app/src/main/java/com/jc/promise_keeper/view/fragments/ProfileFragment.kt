@@ -2,10 +2,12 @@ package com.jc.promise_keeper.view.fragments
 
 import android.Manifest
 import android.app.Activity
+import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.bumptech.glide.Glide
@@ -17,50 +19,58 @@ import com.jc.promise_keeper.common.util.Preferences
 import com.jc.promise_keeper.common.util.REQ_RES_CODE
 import com.jc.promise_keeper.common.util.URIPathHelper
 import com.jc.promise_keeper.common.util.base_view.BaseFragment
+import com.jc.promise_keeper.data.model.datas.User
 import com.jc.promise_keeper.databinding.FragmentProfileBinding
+import com.jc.promise_keeper.view.activities.my_info.MyProfileActivity
 import com.jc.promise_keeper.view.activities.place.FrequentlyPlaceListActivity
 import com.jc.promise_keeper.view.activities.place.FrequentlyUsedPlaceActivity
 import com.jc.promise_keeper.view.activities.sign_in_out.SignInActivity
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
-import okhttp3.MediaType
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import java.io.File
+import java.lang.Exception
 
-class ProfileFragment : BaseFragment<FragmentProfileBinding>(R.layout.fragment_profile) {
+// activity 로 데이터를 보내기 위한 인터페이스
+class ProfileFragment() : BaseFragment<FragmentProfileBinding>(R.layout.fragment_profile) {
 
     private val scope = MainScope()
-
-    val permissionListener = object : PermissionListener {
-        override fun onPermissionGranted() {
-
-            val intent = Intent().apply {
-                action = Intent.ACTION_PICK
-                type = android.provider.MediaStore.Images.Media.CONTENT_TYPE
-            }
-            startActivityForResult(intent, REQ_RES_CODE.PROFILE)
-
-        }
-
-        override fun onPermissionDenied(deniedPermissions: MutableList<String>?) {
-            Toast.makeText(mContext, "사진 조회 권한이 없습니다.", Toast.LENGTH_SHORT).show()
-        }
-
-    }
+    private lateinit var userInfo: User
 
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        initViews()
         setEvents()
 
     }
 
 
+    override fun initViews() {
+        super.initViews()
+//        getProfile()
+
+        Glide.with(mContext)
+            .load(Preferences.getUserProfileImage(mContext))
+            .into(binding.profileImageView)
+
+        binding.nickNameTextView.text = Preferences.getUserNickname(mContext)
+
+
+    }
+
     override fun setEvents() = with(binding) {
         super.setEvents()
+
+        myProfileLayout.setOnClickListener {
+            Intent(mContext, MyProfileActivity::class.java).run {
+                startActivity(this)
+            }
+        }
+
 
         addMyStartPlaceLayout.setOnClickListener {
 
@@ -99,64 +109,10 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(R.layout.fragment_p
 
         }
 
-        setProfile()
-
     }
 
 
-    private fun setProfile() {
 
-        binding.profileImageView.setOnClickListener {
-
-            TedPermission.create()
-                .setPermissionListener(permissionListener)
-                .setPermissions(Manifest.permission.READ_EXTERNAL_STORAGE)
-                .check()
-
-
-        }
-
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (requestCode == REQ_RES_CODE.PROFILE) {
-
-            if (resultCode == Activity.RESULT_OK) {
-
-                val selectedImageUri = data?.data!!
-                val file = File(URIPathHelper().getPath(mContext, selectedImageUri))
-                val fileReqBody = RequestBody.create("image/*".toMediaType(), file)
-                val multiPartBody = MultipartBody.Part
-                    .createFormData("profile_image", "myProfile.jpg", fileReqBody)
-
-                putRequestSetProfile(multiPartBody, selectedImageUri)
-
-            }
-
-        }
-
-    }
-
-    private fun putRequestSetProfile(multipartBody: MultipartBody.Part, imageUrl: Uri) =
-        scope.launch {
-
-            val result = UserRepository.putRequestSetProfile(multipartBody)
-
-            if (result.isSuccessful) {
-
-                Glide.with(mContext)
-                    .load(imageUrl)
-                    .into(binding.profileImageView)
-
-                Toast.makeText(mContext, "프로필 변경을 완료했습니다.", Toast.LENGTH_SHORT).show()
-
-            } else {
-                Toast.makeText(mContext, "프로필 변경에 실패했습니다.", Toast.LENGTH_SHORT).show()
-            }
-
-        }
 
 
 }

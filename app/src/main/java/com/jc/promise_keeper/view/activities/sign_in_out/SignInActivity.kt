@@ -63,8 +63,13 @@ class SignInActivity : BaseAppCompatActivity<ActivitySignInBinding>(R.layout.act
             return@launch
         } else {
             showToast("$message ${data?.user?.nickName}님, 환영합니다!")
-            data?.token?.let {
-                Preferences.setUserToken(mContext, it)
+            data?.let {
+                Preferences.setUserToken(mContext, it.token)
+                Preferences.setUserEmail(mContext, it.user?.email!!)
+                Preferences.setUserProvider(mContext, it.user.provider!!)
+                Preferences.setUserProfileImage(mContext, it.user.profileImg!!)
+                Preferences.setUserCreatedAt(mContext, it.user.createdAt!!)
+                Preferences.setUserNickname(mContext, it.user.nickName!!)
                 goToActivityIsFinish(MainActivity::class.java)
             }
 
