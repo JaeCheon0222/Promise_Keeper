@@ -67,37 +67,50 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageView
-                        android:id="@+id/socialLogin1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/ic_launcher"
-                        app:layout_constraintBottom_toBottomOf="@id/socialLogin2"
-                        app:layout_constraintEnd_toStartOf="@id/socialLogin2"
+                        android:id="@+id/kakaoLogin"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_kakao"
+                        app:layout_constraintBottom_toBottomOf="@id/facebookLogin"
+                        app:layout_constraintEnd_toStartOf="@id/facebookLogin"
                         app:layout_constraintHorizontal_chainStyle="packed"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@id/socialLogin2" />
+                        app:layout_constraintTop_toTopOf="@id/facebookLogin"
+                        app:layout_constraintVertical_bias="1.0" />
 
                     <ImageView
-                        android:id="@+id/socialLogin2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:id="@+id/facebookLogin"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:layout_marginHorizontal="20dp"
                         android:layout_marginTop="20dp"
-                        android:src="@mipmap/ic_launcher"
+                        android:src="@drawable/ic_facebook"
                         app:layout_constraintBottom_toTopOf="@id/emailLoginText"
-                        app:layout_constraintEnd_toStartOf="@id/socialLogin3"
-                        app:layout_constraintStart_toEndOf="@id/socialLogin1"
+                        app:layout_constraintEnd_toStartOf="@id/naverLogin"
+                        app:layout_constraintStart_toEndOf="@id/kakaoLogin"
                         app:layout_constraintTop_toBottomOf="@id/loginTitle" />
 
                     <ImageView
-                        android:id="@+id/socialLogin3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/ic_launcher"
-                        app:layout_constraintBottom_toBottomOf="@id/socialLogin2"
+                        android:id="@+id/naverLogin"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_naver"
+                        app:layout_constraintBottom_toBottomOf="@id/facebookLogin"
+                        app:layout_constraintEnd_toStartOf="@id/googleLogin"
+                        app:layout_constraintStart_toEndOf="@id/facebookLogin"
+                        app:layout_constraintTop_toTopOf="@id/facebookLogin" />
+
+
+                    <ImageView
+                        android:id="@+id/googleLogin"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_google"
+                        app:layout_constraintBottom_toBottomOf="@id/naverLogin"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/socialLogin2"
-                        app:layout_constraintTop_toTopOf="@id/socialLogin2" />
+                        app:layout_constraintStart_toEndOf="@id/naverLogin"
+                        android:layout_marginStart="20dp"
+                        app:layout_constraintTop_toTopOf="@id/naverLogin" />
 
                     <View
                         android:id="@+id/diverLeft"
@@ -119,7 +132,7 @@
                         app:layout_constraintBottom_toTopOf="@id/inputEmailEditText"
                         app:layout_constraintEnd_toStartOf="@id/diverRight"
                         app:layout_constraintStart_toEndOf="@id/diverLeft"
-                        app:layout_constraintTop_toBottomOf="@id/socialLogin2" />
+                        app:layout_constraintTop_toBottomOf="@id/facebookLogin" />
 
                     <View
                         android:id="@+id/diverRight"
