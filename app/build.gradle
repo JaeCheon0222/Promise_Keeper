@@ -88,4 +88,7 @@ dependencies {
     // kakao
     implementation "com.kakao.sdk:v2-user:2.9.0" // 카카오 로그인
 
+    // facebook
+    implementation 'com.facebook.android:facebook-android-sdk:latest.release'
+
 }

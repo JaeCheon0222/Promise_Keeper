@@ -3,4 +3,10 @@
     <string name="txt_splash_content">넵플러스 최종 프로젝트\n약속지킴이</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="facebook_app_id">1272597106602050</string>
+    <string name="fb_login_protocol_scheme">fb1272597106602050</string>
+    <string name="facebook_client_token">cbi4aha6wIba9P44alTQ8gohdzI=</string>
+
 </resources>
