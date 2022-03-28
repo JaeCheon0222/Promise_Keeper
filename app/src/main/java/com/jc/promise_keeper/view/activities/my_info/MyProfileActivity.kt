@@ -12,10 +12,12 @@ import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.normal.TedPermission
 import com.jc.promise_keeper.R
 import com.jc.promise_keeper.common.api.repository.UserRepository
+import com.jc.promise_keeper.common.util.Keys
 import com.jc.promise_keeper.common.util.Preferences
 import com.jc.promise_keeper.common.util.REQ_RES_CODE
 import com.jc.promise_keeper.common.util.URIPathHelper
 import com.jc.promise_keeper.common.util.base_view.BaseAppCompatActivity
+import com.jc.promise_keeper.data.model.datas.User
 import com.jc.promise_keeper.databinding.ActivityMyProfileBinding
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
@@ -49,15 +51,33 @@ class MyProfileActivity :
 
 
     override fun ActivityMyProfileBinding.onCreate() {
+
         initViews()
         setEvents()
     }
 
     override fun initViews() {
         super.initViews()
-//        Glide.with(mContext)
-//            .load(Preferences.getUserProfileImage(mContext))
-//            .into(binding.profileImageView)
+
+        val user = intent.getSerializableExtra(Keys.USER_INFO_NAME) as User
+
+        with(binding) {
+            emailTextView.text = user.email
+            nickNameTextView.text = user.nickName
+
+            Glide.with(mContext)
+                .load(user.profileImg)
+                .into(profileImageView)
+
+            if (user.provider == "default") {
+                providerTextView.text = "이메일"
+            } else {
+                providerTextView.text = user.provider
+            }
+
+            createAtTextView.text = user.createdAt
+
+        }
 
     }
 

@@ -1,23 +1,14 @@
 package com.jc.promise_keeper.view.fragments
 
-import android.Manifest
-import android.app.Activity
-import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.bumptech.glide.Glide
-import com.gun0912.tedpermission.PermissionListener
-import com.gun0912.tedpermission.normal.TedPermission
 import com.jc.promise_keeper.R
 import com.jc.promise_keeper.common.api.repository.UserRepository
+import com.jc.promise_keeper.common.util.Keys
 import com.jc.promise_keeper.common.util.Preferences
-import com.jc.promise_keeper.common.util.REQ_RES_CODE
-import com.jc.promise_keeper.common.util.URIPathHelper
 import com.jc.promise_keeper.common.util.base_view.BaseFragment
 import com.jc.promise_keeper.data.model.datas.User
 import com.jc.promise_keeper.databinding.FragmentProfileBinding
@@ -27,11 +18,6 @@ import com.jc.promise_keeper.view.activities.place.FrequentlyUsedPlaceActivity
 import com.jc.promise_keeper.view.activities.sign_in_out.SignInActivity
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
-import okhttp3.MediaType.Companion.toMediaType
-import okhttp3.MultipartBody
-import okhttp3.RequestBody
-import java.io.File
-import java.lang.Exception
 
 // activity 로 데이터를 보내기 위한 인터페이스
 class ProfileFragment() : BaseFragment<FragmentProfileBinding>(R.layout.fragment_profile) {
@@ -46,18 +32,13 @@ class ProfileFragment() : BaseFragment<FragmentProfileBinding>(R.layout.fragment
         initViews()
         setEvents()
 
+
     }
 
 
     override fun initViews() {
         super.initViews()
-//        getProfile()
-
-//        Glide.with(mContext)
-//            .load(Preferences.getUserProfileImage(mContext))
-//            .into(binding.profileImageView)
-
-//        binding.nickNameTextView.text = Preferences.getUserNickname(mContext)
+        getMyProfile()
 
 
     }
@@ -111,6 +92,35 @@ class ProfileFragment() : BaseFragment<FragmentProfileBinding>(R.layout.fragment
 
     }
 
+
+    private fun getMyProfile() = scope.launch{
+
+        val result = UserRepository.getMyInfo()
+
+        if (result.isSuccessful) {
+
+            val body = result.body()!!
+
+            Glide.with(mContext)
+                .load(body.data?.user?.profileImg)
+                .into(binding.profileImageView)
+
+            binding.nickNameTextView.text = body.data?.user?.nickName!!.toString()
+
+            binding.myProfileLayout.setOnClickListener {
+
+                val user = body?.data.user
+
+                val intent = Intent(mContext, MyProfileActivity::class.java).apply {
+                    putExtra(Keys.USER_INFO_NAME, user)
+                }
+                startActivity(intent)
+
+            }
+
+        }
+
+    }
 
 
 
