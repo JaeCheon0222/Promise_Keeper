@@ -9,4 +9,8 @@
     <string name="fb_login_protocol_scheme">fb1272597106602050</string>
     <string name="facebook_client_token">cbi4aha6wIba9P44alTQ8gohdzI=</string>
 
+    <string name="OAUTH_CLIENT_ID">soZvFUlM_ZampZFl0mmH</string>
+    <string name="OAUTH_CLIENT_SECRET">cOoqW54_1X</string>
+    <string name="OAUTH_CLIENT_NAME">PromiseKeeper</string>
+
 </resources>

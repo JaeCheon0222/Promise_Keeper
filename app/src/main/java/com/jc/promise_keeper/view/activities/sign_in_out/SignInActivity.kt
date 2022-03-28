@@ -13,6 +13,12 @@ import com.jc.promise_keeper.common.util.Preferences
 import com.jc.promise_keeper.common.util.base_view.BaseAppCompatActivity
 import com.jc.promise_keeper.databinding.ActivitySignInBinding
 import com.kakao.sdk.user.UserApiClient
+import com.navercorp.nid.NaverIdLoginSDK
+import com.navercorp.nid.oauth.NidOAuthLogin
+import com.navercorp.nid.oauth.OAuthLoginCallback
+import com.navercorp.nid.profile.NidProfileCallback
+import com.navercorp.nid.profile.data.NidProfileResponse
+import com.nhn.android.naverlogin.OAuthLogin
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import org.json.JSONObject
@@ -30,6 +36,78 @@ class SignInActivity : BaseAppCompatActivity<ActivitySignInBinding>(R.layout.act
 
     lateinit var mCallbackManager: CallbackManager
 
+
+    val oauthLoginCallback = object : OAuthLoginCallback {
+        override fun onSuccess() {
+            // 네이버 로그인 인증이 성공했을 때 수행할 코드 추가
+//            binding.tvAccessToken.text = NaverIdLoginSDK.getAccessToken()
+//            binding.tvRefreshToken.text = NaverIdLoginSDK.getRefreshToken()
+//            binding.tvExpires.text = NaverIdLoginSDK.getExpiresAt().toString()
+//            binding.tvType.text = NaverIdLoginSDK.getTokenType()
+//            binding.tvState.text = NaverIdLoginSDK.getState().toString()
+
+            // 프로필 가져오기
+            NidOAuthLogin().callProfileApi(object : NidProfileCallback<NidProfileResponse> {
+                override fun onSuccess(response: NidProfileResponse) {
+                    Toast.makeText(mContext,"$response",Toast.LENGTH_SHORT).show()
+//                    binding.tvApiResult.text = response.toString()
+                    Log.d("TAG", "onSuccess: ${response.profile?.nickname}")
+                    if (response != null) {
+
+                        scope.launch {
+                            val profile = response.profile
+                            var nickname = ""
+
+                            if (profile?.nickname == null) {
+                                nickname = "이름없음"
+                            }
+
+
+                            val result = UserRepository.postSocialLogin("naver", profile?.id!!, nickname)
+
+                            if (result.isSuccessful) {
+
+                                val body = result.body()!!
+
+                                Preferences.setUserToken(mContext, NaverIdLoginSDK.getAccessToken()!!)
+
+                                showToast("${body.data?.user?.nickName}님, 네이버 로그인을 환영합니다!")
+
+                                goToActivityIsFinish(MainActivity::class.java)
+                                finish()
+
+                            } else {
+                                showToast("실패")
+                            }
+                        }
+                    }
+
+                }
+
+                override fun onFailure(httpStatus: Int, message: String) {
+                    val errorCode = NaverIdLoginSDK.getLastErrorCode().code
+                    val errorDescription = NaverIdLoginSDK.getLastErrorDescription()
+
+//                    Toast.makeText(context, "errorCode: $errorCode, errorDesc: $errorDesc", Toast.LENGTH_SHORT).show()
+//                    binding.tvApiResult.text = ""
+                }
+                override fun onError(errorCode: Int, message: String) {
+                    onFailure(errorCode, message)
+                }
+            })
+
+        }
+        override fun onFailure(httpStatus: Int, message: String) {
+//            val errorCode = NaverIdLoginSDK.getLastErrorCode().code
+//            val errorDescription = NaverIdLoginSDK.getLastErrorDescription()
+//            Toast.makeText(context,"errorCode:$errorCode, errorDesc:$errorDescription",Toast.LENGTH_SHORT).show()
+        }
+        override fun onError(errorCode: Int, message: String) {
+            onFailure(errorCode, message)
+        }
+    }
+
+
     override fun ActivitySignInBinding.onCreate() {
         setEvents()
         initViews()
@@ -38,6 +116,7 @@ class SignInActivity : BaseAppCompatActivity<ActivitySignInBinding>(R.layout.act
     override fun initViews() {
         super.initViews()
         mCallbackManager = CallbackManager.Factory.create()
+        binding.naverLogin.setOAuthLoginCallback(oauthLoginCallback)
         binding.autoLoginCheckBox.isChecked = Preferences.getAutoLogin(mContext)
 
     }
@@ -120,6 +199,16 @@ class SignInActivity : BaseAppCompatActivity<ActivitySignInBinding>(R.layout.act
                 // 공개 프로필 / 이메일 주소를 받아와 달라
                 LoginManager.getInstance().logInWithReadPermissions(this@SignInActivity, Arrays.asList("public_profile", "email"))
 
+            }
+
+            naverLogin.setOnClickListener {
+
+                val OAUTH_CLIENT_ID = resources.getString(R.string.OAUTH_CLIENT_ID)
+                val OAUTH_CLIENT_SECRET = resources.getString(R.string.OAUTH_CLIENT_SECRET)
+                val OAUTH_CLIENT_NAME = resources.getString(R.string.OAUTH_CLIENT_NAME)
+
+                NaverIdLoginSDK.initialize(mContext, OAUTH_CLIENT_ID, OAUTH_CLIENT_SECRET, OAUTH_CLIENT_NAME)
+                NaverIdLoginSDK.authenticate(mContext, oauthLoginCallback)
             }
 
 

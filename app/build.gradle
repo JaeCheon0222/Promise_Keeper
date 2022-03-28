@@ -91,4 +91,12 @@ dependencies {
     // facebook
     implementation 'com.facebook.android:facebook-android-sdk:latest.release'
 
+    // naver
+    implementation("com.navercorp.nid:oauth-jdk8:5.0.1")
+//    implementation files("libs/naveridlogin_android_sdk_4.2.5.aar")
+//
+//    implementation(project(":Nid-OAuth"))
+//    /* 네아로 SDK from MavenCentral */
+//    implementation("com.navercorp.nid:oauth:5.0.1")
+
 }

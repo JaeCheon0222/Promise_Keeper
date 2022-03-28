@@ -90,7 +90,7 @@
                         app:layout_constraintStart_toEndOf="@id/kakaoLogin"
                         app:layout_constraintTop_toBottomOf="@id/loginTitle" />
 
-                    <ImageView
+                    <com.navercorp.nid.oauth.view.NidOAuthLoginButton
                         android:id="@+id/naverLogin"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
