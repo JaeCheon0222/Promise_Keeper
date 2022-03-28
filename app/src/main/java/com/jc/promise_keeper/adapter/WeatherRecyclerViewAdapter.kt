@@ -1,15 +1,12 @@
 package com.jc.promise_keeper.adapter
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.jc.promise_keeper.R
-import com.jc.promise_keeper.data.weather.Item
-import com.jc.promise_keeper.data.weather.enum.Grade
 
 class WeatherRecyclerViewAdapter(
     private val mContext: Context,

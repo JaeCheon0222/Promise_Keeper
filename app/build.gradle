@@ -83,8 +83,9 @@ dependencies {
     // libs 폴더 에 있는 파일 의존성 추가
     implementation files('libs/ODsayAndroidSDK.aar')
 
-
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
 
+    // kakao
+    implementation "com.kakao.sdk:v2-user:2.9.0" // 카카오 로그인
 
 }

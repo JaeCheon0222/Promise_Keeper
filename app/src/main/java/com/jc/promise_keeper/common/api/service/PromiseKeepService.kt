@@ -1,6 +1,7 @@
 package com.jc.promise_keeper.common.api.service
 
 import com.jc.promise_keeper.data.model.basic_response.BasicResponse
+import com.jc.promise_keeper.data.model.datas.User
 import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.Response
@@ -32,6 +33,14 @@ interface PromiseKeepService {
 
     @GET("/user")
     suspend fun getMyInfo(): Response<BasicResponse>
+
+    @FormUrlEncoded
+    @POST("/user/social")
+    suspend fun postSocialLogin(
+        @Field("provider") provider: String,
+        @Field("uid") uid: String,
+        @Field("nick_name") nickname: String
+    ): Response<BasicResponse>
 
     //endregion
 

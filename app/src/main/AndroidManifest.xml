@@ -13,6 +13,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:name=".common.util.GlobalApplication"
         android:theme="@style/Theme.Promise_Keeper">
         <activity
             android:name=".view.activities.my_info.MyProfileActivity"
@@ -42,8 +43,10 @@
             android:exported="false" />
         <activity
             android:name=".view.activities.sign_in_out.SignInActivity"
-            android:exported="false"
-            android:theme="@style/LoginTheme" />
+            android:exported="true"
+            android:theme="@style/LoginTheme">
+
+        </activity>
         <activity
             android:name=".view.activities.splash.SplashActivity"
             android:exported="true"
@@ -57,6 +60,23 @@
         <activity
             android:name=".MainActivity"
             android:exported="true" />
+        <activity
+            android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <!-- Redirect URI: "kakao${NATIVE_APP_KEY}://oauth" -->
+                <data
+                    android:host="oauth"
+                    android:scheme="kakao81a499e412519a65ce6ab948f8d11b8a" />
+            </intent-filter>
+        </activity>
+
+
     </application>
 
 </manifest>

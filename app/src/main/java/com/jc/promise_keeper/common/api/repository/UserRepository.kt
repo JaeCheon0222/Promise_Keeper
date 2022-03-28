@@ -38,4 +38,8 @@ object UserRepository {
     suspend fun patchRequestChangePassword(currentPw: String, newPw: String): Response<BasicResponse> =
         Connect.promiseKeepService.patchRequestChangePassword(currentPw, newPw)
 
+    // 소셜 로그인
+    suspend fun postSocialLogin(provider: String, uid: String, nickname: String): Response<BasicResponse> =
+        Connect.promiseKeepService.postSocialLogin(provider, uid, nickname)
+
 }

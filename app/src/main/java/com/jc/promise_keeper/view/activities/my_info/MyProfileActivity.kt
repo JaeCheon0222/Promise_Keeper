@@ -55,20 +55,9 @@ class MyProfileActivity :
 
     override fun initViews() {
         super.initViews()
-        Glide.with(mContext)
-            .load(Preferences.getUserProfileImage(mContext))
-            .into(binding.profileImageView)
-
-
-        binding.emailEditText.text = Preferences.getUserEmail(mContext)
-        binding.nicknameEditText.text = Preferences.getUserNickname(mContext)
-        binding.providerTextView.text = Preferences.getUserProvider(mContext)
-        binding.createAtEditText.text = Preferences.getUserCreatedAt(mContext)
-
-        if (binding.providerTextView.text.toString() == "default") {
-            binding.nicknameEditText.text = "이메일"
-        }
-
+//        Glide.with(mContext)
+//            .load(Preferences.getUserProfileImage(mContext))
+//            .into(binding.profileImageView)
 
     }
 

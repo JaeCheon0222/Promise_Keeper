@@ -53,11 +53,11 @@ class ProfileFragment() : BaseFragment<FragmentProfileBinding>(R.layout.fragment
         super.initViews()
 //        getProfile()
 
-        Glide.with(mContext)
-            .load(Preferences.getUserProfileImage(mContext))
-            .into(binding.profileImageView)
+//        Glide.with(mContext)
+//            .load(Preferences.getUserProfileImage(mContext))
+//            .into(binding.profileImageView)
 
-        binding.nickNameTextView.text = Preferences.getUserNickname(mContext)
+//        binding.nickNameTextView.text = Preferences.getUserNickname(mContext)
 
 
     }
