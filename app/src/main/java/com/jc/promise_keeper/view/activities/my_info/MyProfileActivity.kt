@@ -30,7 +30,7 @@ class MyProfileActivity :
 
     private val scope = MainScope()
 
-    val permissionListener = object : PermissionListener {
+    private val permissionListener = object : PermissionListener {
         override fun onPermissionGranted() {
 
             val intent = Intent().apply {

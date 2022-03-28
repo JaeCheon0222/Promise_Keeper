@@ -4,6 +4,7 @@ import com.google.gson.GsonBuilder
 import com.gun0912.tedpermission.provider.TedPermissionProvider.context
 import com.jc.promise_keeper.BuildConfig
 import com.jc.promise_keeper.common.api.service.PromiseKeepService
+import com.jc.promise_keeper.common.api.service.WeatherService
 import com.jc.promise_keeper.common.util.DateDeserializer
 import com.jc.promise_keeper.common.util.Preferences
 import okhttp3.Interceptor
@@ -74,6 +75,17 @@ object Connect {
             .client(myClient)
             .build()
             .create()
+    }
+
+    val weatherService: WeatherService by lazy {
+
+        Retrofit.Builder()
+            .baseUrl(Url.KEEP_THE_TIME_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(buildOkHttpClient())
+            .build()
+            .create()
+
     }
 
     private fun buildOkHttpClient(): OkHttpClient =

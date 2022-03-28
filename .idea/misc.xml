@@ -40,6 +40,7 @@
         <entry key="app/src/main/res/layout/requested_user_list_item.xml" value="0.6046875" />
         <entry key="app/src/main/res/layout/searched_user_list_item.xml" value="0.6046875" />
         <entry key="app/src/main/res/layout/start_place_spinner_item.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/layout/weather_list_item.xml" value="0.3802083333333333" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.37604166666666666" />
       </map>
     </option>

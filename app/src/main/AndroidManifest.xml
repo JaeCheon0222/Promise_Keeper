@@ -18,9 +18,6 @@
             android:name=".view.activities.my_info.MyProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".view.activities.map.PromisePlaceMapViewActivity"
-            android:exported="false" />
-        <activity
             android:name=".view.activities.friend.SearchUserActivity"
             android:exported="false" />
         <activity

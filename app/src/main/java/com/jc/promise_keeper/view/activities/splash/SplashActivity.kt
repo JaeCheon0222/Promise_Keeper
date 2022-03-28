@@ -1,23 +1,42 @@
 package com.jc.promise_keeper.view.activities.splash
 
+import android.Manifest
 import android.content.Intent
-import android.util.Log
+import android.widget.Toast
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
+import com.google.android.gms.tasks.CancellationTokenSource
+import com.gun0912.tedpermission.PermissionListener
+import com.gun0912.tedpermission.normal.TedPermission
 import com.jc.promise_keeper.MainActivity
 import com.jc.promise_keeper.R
-import com.jc.promise_keeper.common.api.Connect
 import com.jc.promise_keeper.common.api.repository.UserRepository
 import com.jc.promise_keeper.common.util.Preferences
 import com.jc.promise_keeper.common.util.base_view.BaseAppCompatActivity
 import com.jc.promise_keeper.databinding.ActivitySplashBinding
 import com.jc.promise_keeper.view.activities.sign_in_out.SignInActivity
-import com.jc.promise_keeper.view.activities.sign_in_out.SignUpActivity
 import kotlinx.coroutines.*
-import org.json.JSONObject
+
 
 class SplashActivity : BaseAppCompatActivity<ActivitySplashBinding>(R.layout.activity_splash) {
 
-    val scope = MainScope()
-    var isToken = false
+    private val scope = MainScope()
+    private var isToken = false
+
+    private var permissionlistener: PermissionListener = object : PermissionListener {
+        override fun onPermissionGranted() {
+            getMyInfo()
+            getAutoLogin()
+        }
+
+        override fun onPermissionDenied(deniedPermissions: List<String>) {
+            Toast.makeText(
+                mContext,
+                "권한 획득에 실패했습니다.\n$deniedPermissions",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+    }
 
 
     override fun ActivitySplashBinding.onCreate() {
@@ -26,8 +45,15 @@ class SplashActivity : BaseAppCompatActivity<ActivitySplashBinding>(R.layout.act
 
     override fun initViews() {
         super.initViews()
-        getMyInfo()
-        getAutoLogin()
+
+        TedPermission.create()
+            .setPermissionListener(permissionlistener)
+            .setDeniedMessage("지도를 사용하기위해 위치 정보가 필요합니다.\n\n여기에서 권한을 설정해주세요. [Setting] > [Permission]")
+            .setPermissions(
+                Manifest.permission.ACCESS_COARSE_LOCATION,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            )
+            .check()
 
     }
 
@@ -42,7 +68,6 @@ class SplashActivity : BaseAppCompatActivity<ActivitySplashBinding>(R.layout.act
         }
 
     }
-
 
     private fun getAutoLogin() = scope.launch {
 
