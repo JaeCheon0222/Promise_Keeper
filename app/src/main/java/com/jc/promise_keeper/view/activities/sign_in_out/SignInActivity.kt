@@ -3,6 +3,7 @@ package com.jc.promise_keeper.view.activities.sign_in_out
 import android.content.Intent
 import android.util.Log
 import android.widget.Toast
+import com.bumptech.glide.Glide
 import com.facebook.*
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
@@ -18,13 +19,9 @@ import com.navercorp.nid.oauth.NidOAuthLogin
 import com.navercorp.nid.oauth.OAuthLoginCallback
 import com.navercorp.nid.profile.NidProfileCallback
 import com.navercorp.nid.profile.data.NidProfileResponse
-import com.nhn.android.naverlogin.OAuthLogin
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import org.json.JSONObject
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import java.util.*
 
 class SignInActivity : BaseAppCompatActivity<ActivitySignInBinding>(R.layout.activity_sign_in) {
@@ -116,7 +113,7 @@ class SignInActivity : BaseAppCompatActivity<ActivitySignInBinding>(R.layout.act
     override fun initViews() {
         super.initViews()
         mCallbackManager = CallbackManager.Factory.create()
-        binding.naverLogin.setOAuthLoginCallback(oauthLoginCallback)
+        binding.naverRealLogin.setOAuthLoginCallback(oauthLoginCallback)
         binding.autoLoginCheckBox.isChecked = Preferences.getAutoLogin(mContext)
 
     }

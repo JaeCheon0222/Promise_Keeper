@@ -66,51 +66,57 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
+
                     <ImageView
                         android:id="@+id/kakaoLogin"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/ic_kakao"
-                        app:layout_constraintBottom_toBottomOf="@id/facebookLogin"
+                        android:src="@drawable/kakao"
                         app:layout_constraintEnd_toStartOf="@id/facebookLogin"
-                        app:layout_constraintHorizontal_chainStyle="packed"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="@id/facebookLogin"
-                        app:layout_constraintVertical_bias="1.0" />
+                        tools:layout_editor_absoluteY="211dp" />
+
+                    <com.facebook.login.widget.LoginButton
+                        android:id="@+id/facebookRealLogin"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:visibility="gone"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageView
                         android:id="@+id/facebookLogin"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:layout_marginHorizontal="20dp"
+                        android:layout_gravity="center"
                         android:layout_marginTop="20dp"
-                        android:src="@drawable/ic_facebook"
-                        app:layout_constraintBottom_toTopOf="@id/emailLoginText"
+                        android:src="@drawable/facebook"
+                        app:layout_constraintBottom_toBottomOf="@id/kakaoLogin"
                         app:layout_constraintEnd_toStartOf="@id/naverLogin"
                         app:layout_constraintStart_toEndOf="@id/kakaoLogin"
                         app:layout_constraintTop_toBottomOf="@id/loginTitle" />
 
                     <com.navercorp.nid.oauth.view.NidOAuthLoginButton
-                        android:id="@+id/naverLogin"
+                        android:id="@+id/naverRealLogin"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/ic_naver"
-                        app:layout_constraintBottom_toBottomOf="@id/facebookLogin"
-                        app:layout_constraintEnd_toStartOf="@id/googleLogin"
-                        app:layout_constraintStart_toEndOf="@id/facebookLogin"
-                        app:layout_constraintTop_toTopOf="@id/facebookLogin" />
+                        android:visibility="gone"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
 
                     <ImageView
-                        android:id="@+id/googleLogin"
+                        android:id="@+id/naverLogin"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/ic_google"
-                        app:layout_constraintBottom_toBottomOf="@id/naverLogin"
+                        android:layout_gravity="center"
+                        android:src="@drawable/naver"
+                        app:layout_constraintBottom_toBottomOf="@id/facebookLogin"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/naverLogin"
-                        android:layout_marginStart="20dp"
-                        app:layout_constraintTop_toTopOf="@id/naverLogin" />
+                        app:layout_constraintStart_toEndOf="@id/facebookLogin"
+                        app:layout_constraintTop_toTopOf="@id/facebookLogin" />
+
 
                     <View
                         android:id="@+id/diverLeft"
