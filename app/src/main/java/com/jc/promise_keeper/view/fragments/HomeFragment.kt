@@ -14,13 +14,13 @@ import com.jc.promise_keeper.adapter.WeatherRecyclerViewAdapter
 import com.jc.promise_keeper.common.api.repository.WeatherRepository
 import com.jc.promise_keeper.common.util.base_view.BaseFragment
 import com.jc.promise_keeper.data.weather.WeatherBasicResponse
+import com.jc.promise_keeper.data.weather.enums.Grade
 import com.jc.promise_keeper.databinding.FragmentHomeBinding
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.HashMap
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
@@ -43,6 +43,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         getLocation()
 //        getDate()
 //        setAdapter()
+        getDate()
     }
 
     override fun initViews() {
@@ -60,6 +61,58 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 //            LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false)
     }
 
+    private fun setDay(nowTime: Date): String {
+        val cal = Calendar.getInstance()
+        val timeSdf = SimpleDateFormat("HH")
+        val nowTime = timeSdf.format(nowTime.time)
+        val timeHash = hashMapOf<String, Date>(
+            "two" to timeSdf.parse("02"),
+            "five" to timeSdf.parse("05"),
+            "eight" to timeSdf.parse("08"),
+            "eleven" to timeSdf.parse("11"),
+            "fourteen" to timeSdf.parse("14"),
+            "seventeen" to timeSdf.parse("17"),
+            "twenty" to timeSdf.parse("20"),
+            "twentyThree" to timeSdf.parse("23"),
+        )
+
+        val two = timeSdf.format(timeHash["two"])
+        val five = timeSdf.format(timeHash["five"])
+        val eight = timeSdf.format(timeHash["eight"])
+        val eleven = timeSdf.format(timeHash["eleven"])
+        val fourteen = timeSdf.format(timeHash["fourteen"])
+        val seventeen = timeSdf.format(timeHash["seventeen"])
+        val twenty = timeSdf.format(timeHash["twenty"])
+        val twentyThree = timeSdf.format(timeHash["twentyThree"])
+
+        var tempTime = nowTime.toInt()
+        var currentTime = ""
+
+        // 0200, 0500, 0800, 1100, 1400, 1700, 2000, 2300 (1일, 8회)
+        if (two.toInt() <= tempTime && tempTime < five.toInt()) {
+            currentTime = "02"
+        } else if (five.toInt() <= tempTime && tempTime < eight.toInt()) {
+            currentTime = "05"
+        } else if (eight.toInt() <= tempTime && tempTime < eleven.toInt()) {
+            currentTime = "08"
+        } else if (eleven.toInt() <= tempTime && tempTime < fourteen.toInt()) {
+            currentTime = "11"
+        } else if (fourteen.toInt() <= tempTime && tempTime < seventeen.toInt()) {
+            currentTime = "14"
+        } else if (seventeen.toInt() <= tempTime && tempTime < twenty.toInt()) {
+            currentTime = "17"
+        } else if (twenty.toInt() <= tempTime && tempTime < twentyThree.toInt()) {
+            currentTime = "20"
+        } else if (tempTime >= twentyThree.toInt()) {
+            currentTime = "23"
+        }
+
+        val changeDate = timeSdf.parse(currentTime)
+
+        return timeSdf.format(changeDate!!)
+
+    }
+
 
     private fun getDate(): HashMap<String, Int> {
 
@@ -68,13 +121,18 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         val today = Calendar.getInstance()
         val sdf = SimpleDateFormat("yyyyMMdd HH:mm")
 
+        val hour = setDay(today.time)
         val getDayTime = sdf.format(today.time)
+        Log.d("TAG", "getDate: ${sdf.format(today.time)}")
+
+
+
         val split = getDayTime.split(" ")
         val day = split[0].toInt()
         val time = split[1].replace(":", "").toInt()
 
         dayHash["day"] = day
-        dayHash["time"] = time
+        dayHash["time"] = hour.toInt()
 
         return dayHash
 
@@ -114,24 +172,25 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         val resultDate = getDate()
 
         val day = resultDate["day"]
+        val time = resultDate["time"]
 
-        if (day == null) {
-            return
-        }
 
-//        val strTime = String.format("%04d", 800)
-//        val tempTime = SimpleDateFormat("HHmm").parse(strTime)
-//        val resultTime = SimpleDateFormat("HHmm").format(tempTime).toInt()
-//        val addBeforeZero = DecimalFormat("0000")
-//        val time = addBeforeZero.format(resultTime)
-//        Log.d("TAG", "getWeather b: ${time.toInt()}")
+//        val resultTime = sdf.format(time)
+
+        val strTime = time.toString() + "00"
+
+        Log.d("TAG", "getWeather: $day")
+        Log.d("TAG", "getWeather: $time")
+
+
 
         try {
 
             val result = WeatherRepository.getRequestWeather(
                 numOfRows = 26,
                 pageNo = 1,
-                base_date = day,
+                base_date = day!!.toInt(),
+                base_time = strTime.toInt(),
                 nx = lat,
                 ny = lng
             )
@@ -139,6 +198,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             if (result.isSuccessful) {
 
                 val body = result.body()
+
+                Log.d("TAG", "getWeather: $body")
 
                 if (body == null) {
                     return
@@ -159,6 +220,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
         val body = result.response?.body
         val item = body?.items?.item
+
+        Log.d("TAG", "successGetWeatherData: $body")
+
         for (i in item?.indices!!) {
 
 
@@ -173,7 +237,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
                 weatherDataHash["baseTime"] = item[i].baseTime!!
                 weatherDataHash["fcstTime"] = item[i].fcstTime!!
 
-                when(item[i].category) {
+                when (item[i].category) {
 
                     "SKY" -> {
                         weatherDataHash["sky"] = item[i].fcstValue!!
@@ -192,7 +256,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
                 }
 
 
-
             } else {
                 continue
             }
@@ -206,12 +269,51 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     private fun resultData(resultList: List<Pair<String, String>>) {
 
         Log.d("TAG", "resultData: ${resultList}")
+        Log.d("TAG", "resultData: ${resultList[0].second}")
 
-        resultList[0].second
+        val resultSky = resultList[0].second
+        val resultBaseDate = resultList[1].second
+        val resultFcstTime = resultList[2].second
+        val resultTmp = resultList[3].second
+        val resultBaseTime = resultList[4].second
+//
+//        val date = "$resultBaseDate $resultFcstTime"
+        val strToDate = SimpleDateFormat("yyyyMMdd")
+        val sdf = SimpleDateFormat("yyyy년MM월dd일")
+
+        val strToTime = SimpleDateFormat("HHmm")
+        val sdfTime = SimpleDateFormat("HH:mm")
+
+        val day = strToDate.parse(resultBaseDate)
+        val resultDay = sdf.format(day.time)
+
+        val time = strToTime.parse(resultBaseTime)
+        val resultTime = sdfTime.format(time)
+
+
+        Log.d("TAG", "resultData: $day")
+        Log.d("TAG", "resultData: $resultDay")
+
+        when (resultSky) {
+            "1" -> {
+                binding.skyStateEmoji.text = Grade.GOOD.emoji
+                binding.skyStateTextView.text = Grade.GOOD.label
+            }
+            "3" -> {
+                binding.skyStateTextView.text = Grade.CLODY.emoji
+            }
+            "4" -> {
+                binding.skyStateTextView.text = Grade.BLUR.emoji
+            }
+        }
+
+//        binding.skyStateTextView.text = resultSky
+        binding.weatherDateTextView.text = resultDay.toString()
+        binding.weatherTimeTextView.text = resultTime.toString()
+        binding.temperatureStateTextView.text = "$resultTmp °C"
 
 
     }
-
 
 
 //    override fun onResume() {

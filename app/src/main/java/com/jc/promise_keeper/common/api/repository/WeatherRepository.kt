@@ -10,12 +10,12 @@ object WeatherRepository {
         numOfRows: Int,
         pageNo: Int,
         base_date: Int,
-//        base_time: Int,
+        base_time: Int,
         nx: Int,
         ny: Int
     ): Response<WeatherBasicResponse> =
-        Connect.weatherService.getRequestWeather(numOfRows,pageNo, base_date, nx, ny)
-//        Connect.weatherService.getRequestWeather(numOfRows,pageNo, base_date, base_time, nx, ny)
+//        Connect.weatherService.getRequestWeather(numOfRows,pageNo, base_date, nx, ny)
+        Connect.weatherService.getRequestWeather(numOfRows,pageNo, base_date, base_time, nx, ny)
 
 
 

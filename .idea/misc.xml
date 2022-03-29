@@ -34,7 +34,7 @@
         <entry key="app/src/main/res/layout/divder.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/layout/fragment_friend_list.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_friends.xml" value="0.2640625" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.5" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_promise.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/layout/fragment_requested_users.xml" value="0.6046875" />
