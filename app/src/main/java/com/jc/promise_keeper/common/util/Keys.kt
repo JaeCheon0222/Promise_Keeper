@@ -20,4 +20,10 @@ object Keys {
     const val FREQUENTLY = "FREQUENTLY"
     const val FREQUENTLY_UPDATE = "FREQUENTLY_UPDATE"
 
+    // 약속 장소
+    const val APPOINTMENT_UPDATE = "APPOINTMENT_UPDATE"
+    const val APPOINTMENT_UPDATE_CODE = 1001
+    const val SPINNER_POSITION = "SPINNER_POSITION"
+
+
 }

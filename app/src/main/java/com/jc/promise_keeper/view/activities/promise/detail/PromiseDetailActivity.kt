@@ -1,18 +1,19 @@
 package com.jc.promise_keeper.view.activities.promise.detail
 
 import android.content.DialogInterface
+import android.content.Intent
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.jc.promise_keeper.BuildConfig
 import com.jc.promise_keeper.R
 import com.jc.promise_keeper.common.api.repository.AppointmentRepository
-import com.jc.promise_keeper.common.util.LogLongContentPrint
+import com.jc.promise_keeper.common.util.Keys
 import com.jc.promise_keeper.common.util.base_view.BaseAppCompatActivity
 import com.jc.promise_keeper.data.model.datas.Appointment
 import com.jc.promise_keeper.databinding.ActivityPromiseDetailBinding
 import com.naver.maps.geometry.LatLng
-import com.naver.maps.geometry.LatLngBounds
 import com.naver.maps.map.CameraUpdate
 import com.naver.maps.map.NaverMap
 import com.naver.maps.map.overlay.InfoWindow
@@ -31,7 +32,7 @@ import java.text.SimpleDateFormat
 class PromiseDetailActivity :
     BaseAppCompatActivity<ActivityPromiseDetailBinding>(R.layout.activity_promise_detail) {
 
-    lateinit var mAppointment: Appointment
+    lateinit var appointment: Appointment
     private val scope = MainScope()
 
     // 출발지 ~ 도착지 사이의 정거장이 있다면 정거장들을 좌표로 추가
@@ -43,7 +44,7 @@ class PromiseDetailActivity :
 
 
     override fun ActivityPromiseDetailBinding.onCreate() {
-        mAppointment = intent.getSerializableExtra("appointment") as Appointment
+        appointment = intent.getSerializableExtra("appointment") as Appointment
         jsonObjectData = JSONObject()
         initViews()
         setEvents()
@@ -52,19 +53,28 @@ class PromiseDetailActivity :
 
     override fun initViews() {
         super.initViews()
-        txtTitle.text = "약속장소 확인"
+        txtTitle.text = "약속장소"
+
         showMap()
 
     }
 
     override fun setEvents() {
-        super.setEvents()
+
+        binding.updateTextView.setOnClickListener {
+            val intent = Intent(mContext, PromiseUpdateActivity::class.java).apply {
+                putExtra(Keys.APPOINTMENT_UPDATE, appointment)
+
+            }
+            startActivity(intent)
+        }
 
         binding.deleteAppointment.setOnClickListener {
-            deleteDialog(mAppointment.id!!)
+            deleteDialog(appointment.id!!)
         }
 
     }
+
 
     private fun deleteDialog(id: Int) {
 
@@ -105,14 +115,14 @@ class PromiseDetailActivity :
         binding.naverMapView.getMapAsync { naverMap ->
 
             // 출발지 좌표
-            stationList.add(LatLng(mAppointment.startLatitude!!, mAppointment.startLongitude!!))
+            stationList.add(LatLng(appointment.startLatitude!!, appointment.startLongitude!!))
             // 도착지 좌표
-            stationList.add(LatLng(mAppointment.latitude!!, mAppointment.longitude!!))
+            stationList.add(LatLng(appointment.latitude!!, appointment.longitude!!))
 
-            val appointmentTitle = mAppointment.title
-            val appointmentDate = mAppointment.datetime
-            val appointmentPlace = mAppointment.place
-            val appointmentStartPlace = mAppointment.startPlace
+            val appointmentTitle = appointment.title
+            val appointmentDate = appointment.datetime
+            val appointmentPlace = appointment.place
+            val appointmentStartPlace = appointment.startPlace
 
             val sdf = SimpleDateFormat("yyyy/MM/dd HH:mm")
             val formatDate = sdf.format(appointmentDate)
@@ -128,10 +138,6 @@ class PromiseDetailActivity :
                 promiseTimeTextView.text = time
                 promisePlaceTextView.text = appointmentPlace
                 promiseStartPlaceTextView.text = appointmentStartPlace
-
-                updateAppointment.setOnClickListener {
-
-                }
 
 
             }
@@ -197,10 +203,10 @@ class PromiseDetailActivity :
         val obSayService = ODsayService.init(mContext, BuildConfig.ODSAY_API_KEY)
 
         obSayService.requestSearchPubTransPath(
-            mAppointment.startLongitude.toString(),
-            mAppointment.startLatitude.toString(),
-            mAppointment.longitude.toString(),
-            mAppointment.latitude.toString(),
+            appointment.startLongitude.toString(),
+            appointment.startLatitude.toString(),
+            appointment.longitude.toString(),
+            appointment.latitude.toString(),
             null,
             null,
             null, object : OnResultCallbackListener {
@@ -309,6 +315,5 @@ class PromiseDetailActivity :
             })
 
     }
-
 
 }

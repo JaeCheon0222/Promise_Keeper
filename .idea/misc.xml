@@ -21,6 +21,7 @@
         <entry key="app/src/main/res/layout/activity_my_profile.xml" value="0.5" />
         <entry key="app/src/main/res/layout/activity_promise_detail.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/layout/activity_promise_place_map_view.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/activity_promise_update.xml" value="0.4630208333333333" />
         <entry key="app/src/main/res/layout/activity_search_user.xml" value="0.6046875" />
         <entry key="app/src/main/res/layout/activity_show_naver_map.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.67" />

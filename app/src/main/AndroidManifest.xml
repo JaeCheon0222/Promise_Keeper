@@ -16,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Promise_Keeper">
         <activity
+            android:name=".view.activities.promise.detail.PromiseUpdateActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.activities.place.FrequentlyUpdateActivity"
             android:exported="false" />
         <activity

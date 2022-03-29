@@ -38,6 +38,7 @@ class AddPromiseActivity :
     private lateinit var startPlaceSpinnerAdapter: StartPlaceSpinnerAdapter
 
     // 약속 시간 일/시 를 저장해줄 Calendar (월 값이 0 ~ 11 로 움직이게 맞춰져있다.)
+    // 약속 시간 일/시 를 저장해줄 Calendar (월 값이 0 ~ 11 로 움직이게 맞춰져있다.)
     private val mSelectedAppointmentDateTime = Calendar.getInstance() // 기본 값: 현재 일시
 
     // 약속 장소 관련 멤버변수

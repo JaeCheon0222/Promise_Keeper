@@ -78,6 +78,7 @@ class PromiseFragment: BaseFragment<FragmentPromiseBinding>(R.layout.fragment_pr
     override fun onResume() {
         super.onResume()
         getMyAppointmentList()
+        appointmentRecyclerAdapter.notifyDataSetChanged()
     }
 
 

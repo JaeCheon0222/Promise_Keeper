@@ -2,57 +2,23 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".view.activities.promise.detail.PromiseDetailActivity">
+    tools:context=".view.activities.promise.add.AddPromiseActivity">
 
-    <ScrollView
-        android:id="@+id/scrollView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <ScrollView
+            android:id="@+id/scrollView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/light_grey"
-            android:orientation="vertical"
-            android:padding="20dp">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/updateTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:text="수정" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:layout_weight="1"
-                    android:text="|" />
-
-                <TextView
-                    android:id="@+id/deleteAppointment"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:text="삭제" />
-
-            </LinearLayout>
-
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:background="@color/white"
                 android:orientation="vertical"
-                android:padding="5dp">
+                android:padding="20dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -61,27 +27,18 @@
                     android:textColor="@color/darker_grey"
                     android:textSize="15sp" />
 
-                <TextView
-                    android:id="@+id/promiseTitleTextView"
+                <EditText
+                    android:id="@+id/promiseTitleEditText"
+                    style="@style/inputEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
                     android:layout_marginTop="5dp"
-                    android:text="약속 제목"
+                    android:hint="약속 제목을 적어주세요."
                     app:layout_constraintEnd_toStartOf="@+id/locationLayout"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@color/white"
-                android:orientation="vertical"
-                android:padding="5dp">
+                <include layout="@layout/div" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -97,51 +54,29 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="약속 날짜: "
-                        android:textColor="@color/darker_grey" />
-
-
-                    <TextView
                         android:id="@+id/promiseDateTextView"
+                        style="@style/titleBoxTextView"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="20220328" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="약속 시간: "
+                        android:text="약속 날짜"
                         android:textColor="@color/darker_grey" />
 
                     <TextView
                         android:id="@+id/promiseTimeTextView"
+                        style="@style/titleBoxTextView"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="16:00" />
+                        android:text="약속 시간"
+                        android:textColor="@color/darker_grey" />
 
                 </LinearLayout>
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@color/white"
-                android:orientation="vertical"
-                android:padding="5dp">
+                <include layout="@layout/div" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -150,24 +85,13 @@
                     android:textColor="@color/darker_grey"
                     android:textSize="15sp" />
 
-                <TextView
-                    android:id="@+id/promiseStartPlaceTextView"
-                    android:layout_width="wrap_content"
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/startPlaceSpinner"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="5dp"
-                    android:text="출발 장소" />
+                    android:layout_marginTop="5dp" />
 
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@color/white"
-                android:orientation="vertical"
-                android:padding="5dp">
+                <include layout="@layout/div" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -176,13 +100,13 @@
                     android:textColor="@color/darker_grey"
                     android:textSize="15sp" />
 
-                <TextView
-                    android:id="@+id/promisePlaceTextView"
+                <EditText
+                    android:id="@+id/promisePlaceEditText"
+                    style="@style/inputEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
                     android:layout_marginTop="5dp"
-                    android:text="약속장소"
+                    android:hint="약속 장소 입력."
                     app:layout_constraintEnd_toStartOf="@+id/locationLayout"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -205,10 +129,20 @@
 
                 </FrameLayout>
 
+                <include layout="@layout/div" />
+
+                <Button
+                    android:id="@+id/promiseUpdateButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/azure"
+                    android:text="약속 등록하기"
+                    android:textColor="@color/white" />
+
             </LinearLayout>
 
-        </LinearLayout>
+        </ScrollView>
 
-    </ScrollView>
+    </LinearLayout>
 
 </layout>
