@@ -18,5 +18,6 @@ object Keys {
 
     // 출발지
     const val FREQUENTLY = "FREQUENTLY"
+    const val FREQUENTLY_UPDATE = "FREQUENTLY_UPDATE"
 
 }

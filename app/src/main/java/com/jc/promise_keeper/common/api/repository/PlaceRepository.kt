@@ -31,6 +31,9 @@ object PlaceRepository {
     suspend fun getRequestMyPlaceList(): Response<BasicResponse> =
         Connect.promiseKeepService.getRequestMyPlaceList()
 
+    suspend fun patchRequestPlace(placeId: Int): Response<BasicResponse> =
+        Connect.promiseKeepService.patchRequestPlace(placeId)
+
     suspend fun deleteRequestPlace(id: Int): Response<BasicResponse> =
         Connect.promiseKeepService.deleteRequestPlace(id)
 

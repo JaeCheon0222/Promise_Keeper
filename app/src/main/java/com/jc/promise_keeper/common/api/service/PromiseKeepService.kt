@@ -70,6 +70,12 @@ interface PromiseKeepService {
     @GET("/user/place")
     suspend fun getRequestMyPlaceList(): Response<BasicResponse>
 
+    @FormUrlEncoded
+    @PATCH("/user/place")
+    suspend fun patchRequestPlace(
+        @Field("place_id") placeId: Int
+    ): Response<BasicResponse>
+
     @DELETE("/user/place")
     suspend fun deleteRequestPlace(
         @Query("place_id") id: Int
