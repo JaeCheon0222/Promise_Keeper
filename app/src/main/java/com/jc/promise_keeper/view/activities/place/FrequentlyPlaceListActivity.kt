@@ -9,6 +9,7 @@ import com.jc.promise_keeper.common.api.repository.PlaceRepository
 import com.jc.promise_keeper.common.util.base_view.BaseAppCompatActivity
 import com.jc.promise_keeper.data.model.datas.PlaceData
 import com.jc.promise_keeper.databinding.ActivityFrequentlyPlaceListBinding
+import com.jc.promise_keeper.view.activities.promise.add.AddPromiseActivity
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 
@@ -34,6 +35,15 @@ class FrequentlyPlaceListActivity : BaseAppCompatActivity<ActivityFrequentlyPlac
         binding.frequentlyPlaceRecyclerView.adapter = placeRecyclerAdapter
         binding.frequentlyPlaceRecyclerView.layoutManager = LinearLayoutManager(mContext)
     }
+
+    override fun setEvents() {
+        super.setEvents()
+        btnAdd.setOnClickListener {
+            goToActivityIsFinish(AddPromiseActivity::class.java)
+        }
+
+    }
+
 
     private fun getFrequentlyPlace() = scope.launch {
 

@@ -3,6 +3,7 @@ package com.jc.promise_keeper.adapter
 import android.app.Activity
 import android.content.Context
 import android.content.DialogInterface
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -11,12 +12,16 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.jc.promise_keeper.R
 import com.jc.promise_keeper.common.api.repository.PlaceRepository
+import com.jc.promise_keeper.common.util.Keys
 import com.jc.promise_keeper.common.util.REQ_RES_CODE
 import com.jc.promise_keeper.data.model.datas.PlaceData
+import com.jc.promise_keeper.view.activities.my_info.MyProfileActivity
+import com.jc.promise_keeper.view.activities.place.FrequentlyDetailActivity
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 
@@ -30,9 +35,7 @@ class PlaceRecyclerAdapter(
     inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val placeTitleTextView = view.findViewById<TextView>(R.id.placeTitleTextView)
         private val isPrimaryTextview = view.findViewById<TextView>(R.id.isPrimaryTextview)
-        private val placeImageView = view.findViewById<ImageView>(R.id.placeImageView)
-        private val deletePlaceButton = view.findViewById<ImageView>(R.id.deletePlaceButton)
-
+        private val placeDetailTextView = view.findViewById<TextView>(R.id.placeDetailTextView)
 
         fun bind(data: PlaceData) {
             placeTitleTextView.text = data.name
@@ -43,16 +46,24 @@ class PlaceRecyclerAdapter(
                 isPrimaryTextview.text = "기본설정"
             }
 
-            placeImageView.setOnClickListener {
+            placeDetailTextView.setOnClickListener {
+
+                val intent = Intent(mContext, FrequentlyDetailActivity::class.java).apply {
+                    putExtra(Keys.FREQUENTLY, data)
+                }
+                mContext.startActivity(intent)
 
             }
 
-            deletePlaceButton.setOnClickListener {
 
-                Log.d("id", "bind: ${data.id}")
 
-                showDialog(data.id)
-            }
+
+//            placeDelete.setOnClickListener {
+//
+//                Log.d("id", "bind: ${data.id}")
+//
+//                showDialog(data.id)
+//            }
 
         }
 

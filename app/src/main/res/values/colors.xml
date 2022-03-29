@@ -23,4 +23,6 @@
     <color name="red">#C62828</color>
     <color name="gray">#424242</color>
 
+    <color name="transparent">#A1000000</color>
+
 </resources>

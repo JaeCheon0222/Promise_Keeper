@@ -16,4 +16,7 @@ object Keys {
     const val CREATED_AT = "CREATED_AT"
     const val PASSWORD = "PASSWORD"
 
+    // 출발지
+    const val FREQUENTLY = "FREQUENTLY"
+
 }
