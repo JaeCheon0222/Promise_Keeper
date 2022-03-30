@@ -2,6 +2,7 @@ package com.jc.promise_keeper.view.fragments
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import com.jc.promise_keeper.R
 import com.jc.promise_keeper.adapter.FriendViewPagerAdapter
 import com.jc.promise_keeper.common.util.base_view.BaseFragment
@@ -17,6 +18,7 @@ class FriendsFragment: BaseFragment<FragmentFriendsBinding>(R.layout.fragment_fr
 
         initViews()
         setEvents()
+
     }
 
     override fun initViews() {
@@ -29,6 +31,7 @@ class FriendsFragment: BaseFragment<FragmentFriendsBinding>(R.layout.fragment_fr
 
     override fun setEvents() {
         super.setEvents()
+        binding.btnAddFriend.visibility = View.GONE
         binding.btnAddFriend.setOnClickListener {
             val myIntent = Intent(mContext, SearchUserActivity::class.java)
             startActivity(myIntent)

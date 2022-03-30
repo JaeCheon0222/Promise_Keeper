@@ -78,18 +78,39 @@
 
             </androidx.cardview.widget.CardView>
 
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
             <androidx.cardview.widget.CardView
                 android:layout_width="150dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 card_view:cardBackgroundColor="@color/white"
                 card_view:cardCornerRadius="12dp"
                 card_view:cardElevation="3dp"
                 card_view:contentPadding="4dp">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="asdfasdf" />
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="80dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/place_item_img"/>
+
+                    <TextView
+                        android:id="@+id/searchPlace"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:gravity="center"
+                        android:text="약속 등록하기" />
+
+                </LinearLayout>
+
 
             </androidx.cardview.widget.CardView>
 
@@ -110,25 +131,6 @@
                 card_view:cardElevation="3dp"
                 card_view:contentPadding="0dp">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="120dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/place_item_img"/>
-
-                    <TextView
-                        android:id="@+id/serachPlace"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:gravity="center"
-                        android:text="장소검색하기" />
-
-                </LinearLayout>
 
 
             </androidx.cardview.widget.CardView>

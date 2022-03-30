@@ -66,7 +66,7 @@ class PromiseDetailActivity :
                 putExtra(Keys.APPOINTMENT_UPDATE, appointment)
 
             }
-            startActivity(intent)
+            startActivityForResult(intent, Keys.APPOINTMENT_UPDATE_CODE)
         }
 
         binding.deleteAppointment.setOnClickListener {

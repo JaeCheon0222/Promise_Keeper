@@ -8,7 +8,7 @@
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/blue">
+        android:background="@color/azure">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -122,7 +122,7 @@
                         android:id="@+id/diverLeft"
                         android:layout_width="0dp"
                         android:layout_height="1dp"
-                        android:background="@color/blue"
+                        android:background="@color/azure"
                         app:layout_constraintBottom_toBottomOf="@id/emailLoginText"
                         app:layout_constraintEnd_toStartOf="@id/emailLoginText"
                         app:layout_constraintStart_toStartOf="parent"
@@ -144,18 +144,18 @@
                         android:id="@+id/diverRight"
                         android:layout_width="0dp"
                         android:layout_height="1dp"
-                        android:background="@color/blue"
+                        android:background="@color/azure"
                         app:layout_constraintBottom_toBottomOf="@id/emailLoginText"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@id/emailLoginText"
                         app:layout_constraintTop_toTopOf="@id/emailLoginText" />
 
                     <EditText
+                        style="@style/inputEditText"
                         android:id="@+id/inputEmailEditText"
                         android:layout_width="match_parent"
                         android:layout_height="52dp"
                         android:layout_marginTop="20dp"
-                        android:background="@drawable/edit_text_login_background"
                         android:hint="EMAIL"
                         android:inputType="textEmailAddress"
                         android:paddingStart="20dp"
@@ -183,9 +183,9 @@
                     <EditText
                         android:id="@+id/inputPasswordEditText"
                         android:layout_width="match_parent"
+                        style="@style/inputEditText"
                         android:layout_height="52dp"
                         android:layout_marginTop="20dp"
-                        android:background="@drawable/edit_text_login_background"
                         android:hint="PASSWORD"
                         android:inputType="textPassword"
                         android:paddingStart="20dp"
@@ -220,11 +220,11 @@
                         android:id="@+id/signInButton"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/button_background"
+                        android:background="@color/azure"
                         android:text="로그인"
+                        android:textColor="@color/white"
                         app:layout_constraintBottom_toTopOf="@id/signUpButton"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.6"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/autoLoginCheckBox" />
 
@@ -232,8 +232,9 @@
                         android:id="@+id/signUpButton"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/button_background"
+                        android:background="@color/azure"
                         android:text="회원가입"
+                        android:textColor="@color/white"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"

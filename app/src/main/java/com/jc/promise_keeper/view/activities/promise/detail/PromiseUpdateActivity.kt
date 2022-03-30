@@ -327,7 +327,7 @@ class PromiseUpdateActivity :
             date.toString(),
             name,
             startLatLng.latitude,
-            startLatLng.latitude,
+            startLatLng.longitude,
             placeName,
             destinationLatLng.latitude,
             destinationLatLng.longitude

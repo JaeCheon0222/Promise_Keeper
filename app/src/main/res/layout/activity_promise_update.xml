@@ -136,7 +136,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/azure"
-                    android:text="약속 등록하기"
+                    android:text="약속 수정하기"
                     android:textColor="@color/white" />
 
             </LinearLayout>

@@ -33,8 +33,8 @@ class AppointmentRecyclerAdapter(
         private val txtTitle = view.findViewById<TextView>(R.id.titleTextView)
         private val txtDateTime = view.findViewById<TextView>(R.id.dateTimeTextView)
         private val txtPlaceName = view.findViewById<TextView>(R.id.placeNameTextView)
-        private val imgViewMap = view.findViewById<ImageView>(R.id.imgViewMap)
-        private val deleteButton = view.findViewById<ImageView>(R.id.deleteButton)
+        private val imgViewMap = view.findViewById<TextView>(R.id.imgViewMap)
+
 
         fun bind(data: Appointment) {
 
@@ -54,11 +54,7 @@ class AppointmentRecyclerAdapter(
                 mContext.startActivity(myIntent)
             }
 
-            deleteButton.setOnClickListener {
 
-                showDialog(data.id!!)
-
-            }
 
         }
 

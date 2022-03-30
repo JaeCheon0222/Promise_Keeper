@@ -2,6 +2,7 @@ package com.jc.promise_keeper.view.fragments
 
 import GpsTransfer
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.location.Location
 import android.os.Bundle
 import android.util.Log
@@ -40,6 +41,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         initViews()
+
         getLocation()
 //        getDate()
 //        setAdapter()
@@ -52,14 +54,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     }
 
-    private fun setAdapter() {
-//        weatherRecyclerAdapter = WeatherRecyclerViewAdapter(mContext, weatherDataHash)
-////        weatherRecyclerAdapter = WeatherRecyclerViewAdapter(mContext, weatherList)
-//        binding.weatherRecyclerView.adapter = weatherRecyclerAdapter
-//        // 리사이클러뷰 가로 설정
-//        binding.weatherRecyclerView.layoutManager =
-//            LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false)
+    override fun setEvents() {
+        super.setEvents()
+
     }
+
 
     private fun setDay(nowTime: Date): String {
         val cal = Calendar.getInstance()
@@ -112,7 +111,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         return timeSdf.format(changeDate!!)
 
     }
-
 
     private fun getDate(): HashMap<String, Int> {
 
@@ -180,7 +178,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         val strTime = time.toString() + "00"
 
         Log.d("TAG", "getWeather: $day")
-        Log.d("TAG", "getWeather: $time")
+        Log.d("TAG", "getWeather: $strTime")
 
 
 
@@ -300,10 +298,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
                 binding.skyStateTextView.text = Grade.GOOD.label
             }
             "3" -> {
-                binding.skyStateTextView.text = Grade.CLODY.emoji
+                binding.skyStateEmoji.text = Grade.CLODY.emoji
+                binding.skyStateTextView.text = Grade.CLODY.label
             }
             "4" -> {
-                binding.skyStateTextView.text = Grade.BLUR.emoji
+                binding.skyStateEmoji.text = Grade.BLUR.emoji
+                binding.skyStateTextView.text = Grade.BLUR.label
             }
         }
 

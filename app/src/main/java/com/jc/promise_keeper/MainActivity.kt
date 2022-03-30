@@ -1,5 +1,6 @@
 package com.jc.promise_keeper
 
+import android.content.Intent
 import android.view.View
 import android.widget.Toast
 import androidx.viewpager2.widget.ViewPager2
@@ -8,6 +9,7 @@ import com.jc.promise_keeper.adapter.MainViewPagerAdapter
 import com.jc.promise_keeper.adapter.StartPlaceSpinnerAdapter
 import com.jc.promise_keeper.common.util.base_view.BaseAppCompatActivity
 import com.jc.promise_keeper.databinding.ActivityMainBinding
+import com.jc.promise_keeper.view.activities.friend.SearchUserActivity
 import com.jc.promise_keeper.view.activities.promise.add.AddPromiseActivity
 
 class MainActivity : BaseAppCompatActivity<ActivityMainBinding>(R.layout.activity_main) {
@@ -70,18 +72,27 @@ class MainActivity : BaseAppCompatActivity<ActivityMainBinding>(R.layout.activit
 
                 mainBottomNav.selectedItemId = when (position) {
                     0 -> {
-                        addAppointmentButton.visibility = View.VISIBLE
+                        txtTitle.text = "날씨정보"
+                        btnAdd.visibility = View.GONE
+                        addAppointmentButton.visibility = View.GONE
                         R.id.nav_home
                     }
                     1 -> {
-                        addAppointmentButton.visibility = View.VISIBLE
+                        txtTitle.text = "약속목록"
+                        addAppointmentButton.visibility = View.GONE
+                        btnAdd.visibility = View.GONE
                         R.id.nav_appointments
                     }
                     2 -> {
+                        txtTitle.text = "친구목록"
+                        btnAdd.visibility = View.VISIBLE
+                        goToSearchFriend()
                         addAppointmentButton.visibility = View.GONE
                         R.id.nav_friends
                     }
                     else -> {
+                        txtTitle.text = "내정보"
+                        btnAdd.visibility = View.GONE
                         addAppointmentButton.visibility = View.GONE
                         R.id.nav_profile
                     }
@@ -92,6 +103,16 @@ class MainActivity : BaseAppCompatActivity<ActivityMainBinding>(R.layout.activit
         })
 
     }
+
+    private fun goToSearchFriend() {
+
+        btnAdd.setOnClickListener {
+            val myIntent = Intent(mContext, SearchUserActivity::class.java)
+            startActivity(myIntent)
+        }
+
+    }
+
 
     private fun goToAddAppointment() {
 
